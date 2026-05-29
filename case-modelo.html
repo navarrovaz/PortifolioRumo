@@ -3,8 +3,8 @@
 <head>
   <meta charset="utf-8"/>
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
-  <title>Cases & Portfólio — Rumo Soluções</title>
-  <meta name="description" content="Conheça os cases de sucesso da Rumo Soluções em Fábrica de Software, Outsourcing de TI, Infraestrutura, Cibersegurança e Inteligência Artificial."/>
+  <title>Case Rumo — Correção Exata Blacksmith</title>
+  
   <link rel="preconnect" href="https://fonts.googleapis.com"/>
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet"/>
@@ -12,884 +12,620 @@
   <style>
     /* ========================================================
        RESET & TOKENS
-    ======================================================== */
+       ======================================================== */
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-
+    
     :root {
-      --black:       #0a0a0a;
-      --white:       #ffffff;
-      --primary:     #05AAE2;
-      --gray:        rgba(255,255,255,0.50);
-      --gray-dim:    rgba(255,255,255,0.25);
-      --line:        rgba(255,255,255,0.09);
-      --row-h:       12.5rem;      /* minimized row height — very generous height so at most 4 rows fit in the viewport */
-      --expand-h:    720px;        /* expanded row height — ample space for new top/bottom layout */
-      --transition:  0.55s cubic-bezier(.16,1,.3,1);
+      /* Estritamente Preto, Branco e Cinza */
+      --bg-black:      #050505; /* Preto Profundo */
+      --bg-white:      #ffffff;
+      --bg-light-gray: #f5f5f5; /* Cinza claro suave */
+      
+      --text-black:    #111111;
+      --text-white:    #ffffff;
+      --text-gray-dark:#555555;
+      --text-gray-light:rgba(255,255,255,0.6);
+      
+      --border-dark:   rgba(255,255,255,0.15);
+      --border-light:  rgba(0,0,0,0.1);
     }
-
-    html { -webkit-font-smoothing: antialiased; }
 
     body {
       font-family: 'Inter', sans-serif;
-      font-size: clamp(14px, 1.05vw, 19px);
-      background: var(--black);
-      color: var(--white);
-      overflow-x: hidden;
-    }
-
-    a { color: inherit; text-decoration: none; }
-
-    /* ========================================================
-       LAYOUT
-    ======================================================== */
-    .c-container {
-      width: 100%;
-      max-width: 1720px;           /* wide, cinema-grade container for edge-to-edge Refokus experience */
-      margin: 0 auto;
-      padding: 0 clamp(1.5rem, 3.5vw, 4rem); /* refined padding to improve page space usage */
-    }
-
-    /* ========================================================
-       TYPOGRAPHY
-    ======================================================== */
-    .heading-display {
-      font-size: clamp(3.5rem, 9vw, 9rem);
-      font-weight: 800;
-      line-height: 0.92;
-      letter-spacing: -0.03em;
-    }
-
-    .heading-sub {
-      font-size: clamp(0.85rem, 1.15vw, 1.25rem);
-      font-weight: 300;
       line-height: 1.5;
-      color: var(--gray);
+      -webkit-font-smoothing: antialiased;
+      overflow-x: hidden;
+      font-size: 16px;
     }
 
-    .heading-project {
-      font-size: clamp(1.8rem, 3.2vw, 3.2rem);
-      font-weight: 600;            /* clean and medium-bold like Refokus */
-      line-height: 1;
-      letter-spacing: -0.02em;
-      white-space: nowrap;
+    a { text-decoration: none; color: inherit; }
+    img { max-width: 100%; display: block; }
+    ul { list-style: none; }
+
+    /* Helper Background Classes */
+    .theme-black { background-color: var(--bg-black); color: var(--text-white); }
+    .theme-white { background-color: var(--bg-white); color: var(--text-black); }
+    .theme-gray  { background-color: var(--bg-light-gray); color: var(--text-black); }
+
+    /* ========================================================
+       GRID ESPAÇOSO (Herdado do Index)
+       ======================================================== */
+    .container {
+      width: 100%;
+      max-width: 1720px;
+      margin: 0 auto;
+      padding: 0 clamp(1.5rem, 3.5vw, 4rem);
     }
 
-    .text-body {
-      font-size: clamp(0.85rem, 0.95vw, 1.05rem); /* larger and highly readable */
-      font-weight: 400;
-      line-height: 1.6;
-      color: var(--gray);
+    .section-pad {
+      padding: 8rem 0;
     }
 
-    .text-tag {
-      font-size: clamp(0.6rem, 0.68vw, 0.76rem);
-      font-weight: 500;
+    /* ========================================================
+       1. HERO SECTION (THEME BLACK)
+       ======================================================== */
+    .breadcrumbs {
+      padding: 2rem 0 4rem;
+      font-size: 0.85rem;
       text-transform: uppercase;
-      letter-spacing: 0.12em;
-    }
-
-    /* ========================================================
-       DIVIDER
-    ======================================================== */
-    .c-line-full {
-      width: 100%;
-      height: 1px;
-      background: var(--line);
-    }
-
-    /* ========================================================
-       HERO
-    ======================================================== */
-    .c-hero {
-      padding-top: clamp(6rem, 10vw, 9rem);
-      padding-bottom: 0;
-    }
-
-    .c-hero-inner {
-      padding-top: 3rem;
-      padding-bottom: 0;           /* let the filters bottom margin handle the spacing */
-    }
-
-    .c-hero-title { margin-bottom: 1.5rem; }
-    .c-hero-title .heading-display { margin-bottom: 0.75rem; }
-
-    /* ========================================================
-       FILTERS — single horizontal row
-    ======================================================== */
-    .filters-wrap {
-      padding: 1.25rem 0 4.5rem;   /* extremely generous bottom respiro to let the page breathe before first case */
-      overflow-x: auto;
-      -webkit-overflow-scrolling: touch;
-      scrollbar-width: none;
-    }
-    .filters-wrap::-webkit-scrollbar { display: none; }
-
-    .portfolio-filters {
-      display: flex;
-      flex-direction: row;
-      flex-wrap: nowrap;        /* SINGLE LINE — no wrap */
-      gap: 2rem;
-      width: max-content;
-      min-width: 100%;
-    }
-
-    .c-checkbox-label {
-      display: flex;
-      align-items: center;
-      gap: 0.55rem;
-      cursor: pointer;
-      user-select: none;
-      flex-shrink: 0;
-    }
-
-    .c-checkbox-label input { position: absolute; opacity: 0; pointer-events: none; }
-
-    .c-checkbox-box {
-      width: 1rem;
-      height: 1rem;
-      border: 1px solid rgba(255,255,255,0.22);
-      border-radius: 2px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      transition: border-color 0.2s;
-      flex-shrink: 0;
-    }
-
-    .c-checkbox-dot {
-      width: 0; height: 0;
-      border-radius: 50%;
-      background: var(--primary);
-      transition: width 0.2s, height 0.2s;
-    }
-
-    .c-checkbox-label:hover .c-checkbox-box { border-color: var(--primary); }
-    .c-checkbox-label input:checked ~ .c-checkbox-box { border-color: var(--primary); }
-    .c-checkbox-label input:checked ~ .c-checkbox-box .c-checkbox-dot { width: 0.42rem; height: 0.42rem; }
-    .c-checkbox-label input:checked ~ .filter-text { color: var(--primary); }
-
-    .filter-text {
-      font-size: clamp(0.6rem, 0.68vw, 0.76rem);
-      font-weight: 500;
-      text-transform: uppercase;
-      letter-spacing: 0.12em;
-      color: rgba(255,255,255,0.5);
-      transition: color 0.2s;
-      white-space: nowrap;
-    }
-
-    /* Mobile accordion */
-    .desktop-only { display: block; }
-    .tablet-only  { display: none; }
-
-    .c-accordion_dropdown { border-bottom: 1px solid var(--line); }
-    .c-accordion_toggle {
-      display: flex; align-items: center; justify-content: space-between;
-      padding: 1rem 0; cursor: pointer; user-select: none;
-    }
-    .c-plus-icon { position: relative; width: 1rem; height: 1rem; flex-shrink: 0; }
-    .c-plus-line { position: absolute; background: var(--white); transition: transform 0.3s; }
-    .c-plus-line.cc-h { width: 100%; height: 1px; top: 50%; left: 0; transform: translateY(-50%); }
-    .c-plus-line.cc-v { width: 1px; height: 100%; left: 50%; top: 0; transform: translateX(-50%); }
-    .c-accordion_dropdown.open .c-plus-line.cc-v { transform: translateX(-50%) rotate(90deg); }
-    .c-accordion_list { max-height: 0; overflow: hidden; transition: max-height 0.4s ease; }
-    .c-accordion_list.open { max-height: 600px; }
-    .c-accordion_list-inner { padding-bottom: 1.5rem; }
-    .c-accordion_list-inner .portfolio-filters { flex-direction: column; flex-wrap: wrap; width: auto; gap: 0.8rem; }
-
-    /* ========================================================
-       PROJECT LIST
-    ======================================================== */
-    .c-projects-list { width: 100%; }
-
-    /* ---- Single project item ---- */
-    .c-project-item {
-      position: relative;
-      overflow: hidden;
-      cursor: pointer;
-    }
-
-    /* Colored hover background — fills full item */
-    .portfolio_bg {
-      position: absolute;
-      inset: 0;
-      opacity: 0;
-      transition: opacity var(--transition);
-      z-index: 0;
-      pointer-events: none;
-    }
-
-    .c-project-item.is-active .portfolio_bg { opacity: 1; }
-
-    /* Everything sits above bg */
-    .project-inner { position: relative; z-index: 1; }
-
-    /* ---- MINIMIZED ROW (default visible state) ---- */
-    .row-minimized {
-      display: grid;
-      grid-template-columns:
-        minmax(0, 3fr)          /* title */
-        minmax(0, 4fr)          /* description */
-        minmax(0, 2fr);         /* tags */
-      align-items: center;
-      gap: var(--gap, 2rem);
-      height: var(--row-h);
-      padding: 0;
-      transition: opacity var(--transition), height var(--transition);
-      overflow: hidden;
-    }
-
-    .c-project-item.is-active .row-minimized {
-      height: 0;
-      opacity: 0;
-      pointer-events: none;
-    }
-
-    .row-min-title {
-      display: flex;
-      align-items: center;
-      gap: 1.5rem;
-    }
-
-    .row-min-index {
-      font-size: clamp(0.6rem, 0.65vw, 0.72rem);
-      font-weight: 500;
-      color: var(--gray-dim);
-      letter-spacing: 0.08em;
-      flex-shrink: 0;
-      min-width: 1.8rem;
-    }
-
-    .row-min-description { /* center column */ }
-
-    .row-min-tags {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 0.4rem;
-      justify-content: flex-end;
-    }
-
-    .tag-pill {
-      padding: 0.4rem 0.95rem;     /* more generous padding for a spacious look */
-      border: 1px solid var(--line);
-      border-radius: 2rem;
-      font-size: clamp(0.6rem, 0.65vw, 0.72rem);
-      font-weight: 500;
-      text-transform: uppercase;
-      letter-spacing: 0.1em;
-      color: var(--gray-dim);
-      white-space: nowrap;
-      transition: border-color var(--transition), color var(--transition);
-    }
-
-    .c-project-item.is-active .tag-pill {
-      border-color: rgba(255,255,255,0.25);
-      color: rgba(255,255,255,0.7);
-    }
-
-    /* ---- EXPANDED PANEL (hidden by default) ---- */
-    .row-expanded {
-      height: 0;
-      overflow: hidden;
-      opacity: 0;
-      transition: height var(--transition), opacity var(--transition);
-    }
-
-    .c-project-item.is-active .row-expanded {
-      height: var(--expand-h);
-      opacity: 1;
-    }
-
-    .row-expanded-inner {
-      display: flex;
-      flex-direction: column;
-      gap: 3.5rem;                 /* generous gap between text and images */
-      padding: clamp(3.5rem, 4.5vw, 4.8rem) 0; /* breathing margins */
-    }
-
-    .expanded-text-top {
-      display: grid;
-      grid-template-columns: 1fr 1.2fr 1fr;
-      gap: 2rem;
-      align-items: start;
-      width: 100%;
-    }
-
-    .expanded-title-cta {
-      display: flex;
-      flex-direction: column;
-      gap: 1.2rem;
-    }
-
-    .expanded-description-col {
-      display: flex;
-      align-items: flex-start;
-      padding-top: 0.5rem;
-    }
-
-    /* Bottom: 3 mockup images */
-    .expanded-images-bottom {
-      display: grid;
-      grid-template-columns: 1.6fr 1fr 1fr;
-      gap: 1.2rem;                 /* wider gap between mockup prints */
-      width: 100%;
-      height: calc(var(--expand-h) - 20rem); /* fits within container minus top text */
-    }
-
-    .expanded-img {
-      border-radius: 6px;
-      overflow: hidden;
-      background: rgba(0,0,0,0.3);
-      position: relative;
-    }
-
-    .expanded-img:first-child { grid-row: 1; }
-
-    .expanded-img .mockup-svg {
-      width: 100%;
-      height: 100%;
-      display: block;
-    }
-
-    /* Center: CTA + description */
-    .expanded-center {
-      display: flex;
-      flex-direction: column;
-      gap: 1.5rem;
-      padding-top: 0.5rem;
-    }
-
-    .expanded-project-name {
-      font-size: clamp(2rem, 3.5vw, 4rem);
-      font-weight: 800;
-      line-height: 0.9;
-      letter-spacing: -0.03em;
-    }
-
-    .expanded-description {
-      font-size: clamp(0.8rem, 0.88vw, 1rem);
-      line-height: 1.65;
-      color: rgba(255,255,255,0.7);
-      max-width: 32ch;
-    }
-
-    /* CTA button */
-    .c-button-cta {
-      display: inline-flex;
-      align-items: center;
-      gap: 0;
-      padding: 0.5rem 0;
-      cursor: pointer;
-      overflow: hidden;
-      width: fit-content;
-      position: relative;
+      letter-spacing: 0.15em;
+      color: var(--text-gray-light);
     }
     
-    .c-button-cta::after {
-      content: '';
-      position: absolute;
-      left: 0;
-      bottom: 0;
-      width: 0;
-      height: 1px;
-      background: var(--primary);
-      transition: width 0.3s ease;
+    .hero-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 6rem;
+      align-items: center;
+      padding-bottom: 8rem;
     }
 
-    .c-button-cta:hover::after { width: 100%; }
-
-    .btn-text-wrap {
-      overflow: hidden;
-      height: 1.2em;
+    .hero-image-ph {
+      width: 100%;
+      aspect-ratio: 4/3;
+      background: #1a1a1a;
+      border: 1px solid var(--border-dark);
+      display: flex; align-items: flex-end; justify-content: flex-end;
+      padding: 2rem;
+      color: rgba(255,255,255,0.3);
+      font-size: 0.85rem; letter-spacing: 0.1em;
     }
 
-    .btn-text-wrap p {
-      font-size: clamp(0.65rem, 0.75vw, 0.82rem);
-      font-weight: 600;
-      text-transform: uppercase;
-      letter-spacing: 0.12em;
-      white-space: nowrap;
-      transition: transform 0.75s cubic-bezier(.16,1,.3,1) 0.1s;
-      text-shadow: 0 1.4em 0 var(--primary);
-      color: var(--primary);
+    .hero-tags {
+      display: flex; gap: 1rem; margin-bottom: 2rem;
+    }
+    .hero-tag {
+      font-size: 0.85rem; font-weight: 700; text-transform: uppercase;
+      color: var(--text-white); letter-spacing: 0.15em;
     }
 
-    .c-button-cta:hover .btn-text-wrap p {
-      transform: translateY(-100%);
-      transition-delay: 0s;
+    .hero-title {
+      font-size: clamp(3rem, 6vw, 5.5rem);
+      font-weight: 800;
+      line-height: 1.05;
+      letter-spacing: -0.03em;
+      margin-bottom: 2rem;
     }
 
-    .btn-arrow {
-      position: relative;
-      width: 1.3rem;
-      height: 0.8rem;
-      overflow: hidden;
-      margin-left: 0.7rem;
-      flex-shrink: 0;
+    .hero-desc {
+      font-size: clamp(1.1rem, 1.5vw, 1.3rem);
+      color: var(--text-gray-light);
+      max-width: 600px;
     }
 
-    .arrow-r, .arrow-l {
-      position: absolute;
-      top: 50%;
-      display: flex; align-items: center;
-      transition: transform 0.75s cubic-bezier(.16,1,.3,1) 0.1s;
-    }
-    .arrow-r { transform: translateY(-50%) translateX(0); }
-    .arrow-l { transform: translateY(-50%) translateX(-115%); }
-    .arrow-r svg, .arrow-l svg { width: 1.1rem; height: auto; stroke: var(--primary); fill: none; }
-
-    .c-button-cta:hover .arrow-r { transform: translateY(-50%) translateX(115%); transition-delay: 0s; }
-    .c-button-cta:hover .arrow-l { transform: translateY(-50%) translateX(0); transition-delay: 0.1s; }
-
-    /* Right: extra info keywords */
-    .expanded-meta {
+    /* ========================================================
+       2. SOBRE O CLIENTE (THEME WHITE)
+       ======================================================== */
+    .about-top {
       display: flex;
       flex-direction: column;
-      gap: 1.2rem;
-      padding-top: 0.5rem;
-    }
-
-    .meta-group { display: flex; flex-direction: column; gap: 0.3rem; }
-
-    .meta-label {
-      font-size: clamp(0.55rem, 0.6vw, 0.66rem);
-      font-weight: 600;
-      text-transform: uppercase;
-      letter-spacing: 0.14em;
-      color: rgba(255,255,255,0.3);
-    }
-
-    .meta-value {
-      font-size: clamp(0.72rem, 0.82vw, 0.9rem);
-      font-weight: 400;
-      color: rgba(255,255,255,0.8);
-    }
-
-    /* separator line */
-    .c-project_line {
-      width: 100%;
-      height: 1px;
-      background: var(--line);
-      position: relative;
-      z-index: 1;
-    }
-
-    /* ========================================================
-       RESPONSIVE
-    ======================================================== */
-    @media (max-width: 991px) {
-      .desktop-only { display: none; }
-      .tablet-only  { display: block; }
-
-      .row-minimized {
-        grid-template-columns: 1fr;
-        height: auto;
-        padding: 3rem 0;          /* generous padding to avoid condensed layout on mobile */
-        gap: 1rem;                /* spacious gap between row elements */
-      }
-
-      .row-min-tags { justify-content: flex-start; }
-
-      .expanded-text-top { grid-template-columns: 1fr; gap: 1.5rem; }
-      .expanded-images-bottom { grid-template-columns: 1fr; height: 350px; }
-      .expanded-img:not(:first-child) { display: none; }
-
-      .row-expanded-inner { display: flex; flex-direction: column; gap: 2rem; }
-      .expanded-meta { display: none; }
-
-      .c-project-item.is-active .row-expanded { height: auto; }
-      .row-expanded { height: auto !important; }
-      .c-project-item .row-expanded { max-height: 0; height: auto; }
-      .c-project-item.is-active .row-expanded { max-height: 1200px; height: auto; }
-    }
-
-    @media (max-width: 480px) {
-      .heading-display { font-size: 3rem; }
-      .heading-project  { font-size: 1.8rem; white-space: normal; }
-      .expanded-project-name { font-size: 2.2rem; }
-    }
-
-    /* ========================================================
-       PAGE BOTTOM
-    ======================================================== */
-    .page-footer {
-      padding: 4rem 0 5rem;
+      align-items: center;
       text-align: center;
+      margin-bottom: 4rem;
     }
-    .page-footer p {
-      font-size: 0.65rem;
+    .about-title {
+      font-size: 1rem;
+      font-weight: 700;
       text-transform: uppercase;
-      letter-spacing: 0.2em;
-      color: rgba(255,255,255,0.15);
+      letter-spacing: 0.15em;
+      margin-bottom: 2rem;
+    }
+    .about-lead {
+      font-size: clamp(1.8rem, 3vw, 2.5rem);
+      font-weight: 700;
+      color: var(--text-black);
+      max-width: 1000px;
+      line-height: 1.3;
+      letter-spacing: -0.02em;
+    }
+    .about-cols {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 5rem;
+      font-size: 1.1rem;
+      color: var(--text-gray-dark);
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+
+    /* ========================================================
+       3. SERVIÇOS PRESTADOS (THEME GRAY)
+       ======================================================== */
+    .services-top { margin-bottom: 5rem; }
+    .services-title { font-size: 2.5rem; font-weight: 700; margin-bottom: 1rem; letter-spacing: -0.02em; }
+    .services-desc { font-size: 1.1rem; color: var(--text-gray-dark); }
+    
+    .services-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 2rem;
+    }
+    .service-card {
+      display: flex;
+      flex-direction: column;
+      background: var(--bg-white);
+      border: 1px solid var(--border-light);
+      border-radius: 6px;
+      padding: 3rem;
+      min-height: 480px;
+    }
+    .service-icon {
+      width: 48px; height: 48px; margin-bottom: 4rem;
+    }
+    .service-icon svg { width: 100%; height: 100%; }
+    .service-name { font-weight: 400; font-size: 1.8rem; margin-bottom: 1.5rem; letter-spacing: -0.02em; color: var(--text-black); }
+    .service-text { font-size: 0.95rem; color: var(--text-gray-dark); margin-bottom: 4rem; line-height: 1.6; }
+    .service-arrow {
+      margin-top: auto;
+      width: 24px; height: 24px;
+    }
+    .service-arrow svg { width: 100%; height: 100%; }
+
+    /* ========================================================
+       4. O DESAFIO (THEME BLACK)
+       ======================================================== */
+    .challenge-top {
+      text-align: center;
+      margin-bottom: 6rem;
+    }
+    .challenge-title { font-size: 3.5rem; font-weight: 800; margin-bottom: 1rem; letter-spacing: -0.02em; }
+    .challenge-subtitle { font-size: 1.2rem; color: var(--text-gray-light); max-width: 800px; margin: 0 auto; }
+
+    .challenge-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 6rem;
+    }
+
+    .challenge-images {
+      display: flex; flex-direction: column; gap: 2rem;
+    }
+    .ch-img-ph {
+      width: 100%; height: 280px; background: #1a1a1a;
+      display: flex; align-items: center; justify-content: center; color: rgba(255,255,255,0.2);
+    }
+
+    .challenge-list {
+      display: flex; flex-direction: column; gap: 4rem; justify-content: center;
+    }
+    .ch-item {
+      display: flex; flex-direction: column; gap: 1rem;
+    }
+    .ch-number {
+      font-size: 1.2rem; font-weight: 700; color: var(--text-white); border-bottom: 1px solid var(--border-dark); padding-bottom: 0.5rem; width: 40px;
+    }
+    .ch-item-title { font-size: 1.8rem; font-weight: 700; letter-spacing: -0.02em; }
+    .ch-item-desc { font-size: 1.1rem; color: var(--text-gray-light); line-height: 1.6; }
+
+    /* ========================================================
+       5. A SOLUÇÃO (THEME WHITE / GRAY)
+       ======================================================== */
+    .sol-top { margin-bottom: 4rem; }
+    .sol-title { font-size: 2.5rem; font-weight: 700; }
+
+    .sol-block-wrapper {
+      position: relative;
+      padding: 6rem 0;
+    }
+    .sol-img-large {
+      width: 75%;
+      aspect-ratio: 16/9;
+      background: #eaeaea;
+      display: flex; align-items: center; justify-content: center; color: #999;
+    }
+    .sol-text-float {
+      position: absolute;
+      top: 50%;
+      right: 5%;
+      transform: translateY(-50%);
+      width: 40%;
+      background: var(--bg-white);
+      padding: 4rem;
+      box-shadow: 0 30px 60px rgba(0,0,0,0.08);
+      z-index: 10;
+    }
+    .sol-block-wrapper.reverse .sol-img-large {
+      margin-left: auto;
+    }
+    .sol-block-wrapper.reverse .sol-text-float {
+      right: auto;
+      left: 5%;
+    }
+
+    .sol-text-title { font-size: 2rem; font-weight: 700; margin-bottom: 1.5rem; letter-spacing: -0.02em; }
+    .sol-text-desc { font-size: 1.1rem; color: var(--text-gray-dark); }
+
+    .sol-full-image {
+      width: 100%; aspect-ratio: 21/9; background: #e0e0e0;
+      display: flex; align-items: center; justify-content: center; color: #999;
+      margin-top: 6rem;
+    }
+
+    /* ========================================================
+       6. OS RESULTADOS (THEME BLACK)
+       ======================================================== */
+    .results-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 6rem;
+    }
+    .res-left-title { font-size: 4rem; font-weight: 800; margin-bottom: 2rem; letter-spacing: -0.03em; }
+    .res-left-desc { font-size: 1.2rem; color: var(--text-gray-light); margin-bottom: 4rem; max-width: 600px; }
+    
+    .res-gallery {
+      display: grid; grid-template-columns: 1fr 1fr; gap: 2rem;
+    }
+    .res-gallery-img {
+      width: 100%; aspect-ratio: 4/5; background: #1a1a1a;
+    }
+
+    .res-right-stats {
+      display: flex; flex-direction: column; gap: 5rem;
+      justify-content: center;
+    }
+    .stat-item { display: flex; flex-direction: column; }
+    .stat-number { font-size: clamp(5rem, 8vw, 8rem); font-weight: 300; color: var(--text-white); line-height: 0.9; margin-bottom: 1rem; letter-spacing: -0.04em; }
+    .stat-label { font-size: 1.1rem; font-weight: 600; text-transform: uppercase; letter-spacing: 0.15em; color: var(--text-gray-light); }
+
+    /* ========================================================
+       7. VAMOS TRABALHAR JUNTOS (THEME WHITE)
+       ======================================================== */
+    .contact-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 6rem;
+      align-items: center;
+    }
+    .contact-media {
+      width: 100%; aspect-ratio: 1/1; background: var(--bg-black);
+      display: flex; align-items: center; justify-content: center;
+      position: relative;
+    }
+    /* Simple abstract graphic like reference */
+    .contact-media::after {
+      content: '✕'; font-size: 15rem; color: rgba(255,255,255,0.05); font-weight: 100;
+    }
+
+    .contact-title { font-size: 4rem; font-weight: 800; margin-bottom: 3rem; letter-spacing: -0.03em; }
+    
+    .form-group { margin-bottom: 2.5rem; }
+    .form-label { display: block; font-size: 0.85rem; font-weight: 700; margin-bottom: 1rem; text-transform: uppercase; color: var(--text-gray-dark); letter-spacing: 0.1em; }
+    .form-input {
+      width: 100%; border: none; border-bottom: 2px solid var(--border-light);
+      padding: 0.5rem 0 1rem; font-size: 1.2rem; font-family: 'Inter', sans-serif;
+      outline: none; background: transparent; transition: border-color 0.3s;
+    }
+    .form-input:focus { border-color: var(--text-black); }
+    
+    .btn-submit {
+      background: var(--bg-black); color: var(--text-white); border: none;
+      padding: 1.2rem 3rem; font-weight: 700; cursor: pointer; text-transform: uppercase; letter-spacing: 0.1em;
+      margin-top: 1rem; transition: opacity 0.3s;
+    }
+    .btn-submit:hover { opacity: 0.8; }
+
+    /* ========================================================
+       8. ESTUDOS DE CASO (THEME WHITE)
+       ======================================================== */
+    .more-cases { padding-top: 2rem; padding-bottom: 8rem; }
+    .cases-list {
+      border-top: 2px solid var(--border-light);
+    }
+    .case-row {
+      display: flex; justify-content: space-between; align-items: center;
+      padding: 3rem 0; border-bottom: 2px solid var(--border-light);
+      cursor: pointer;
+    }
+    .case-row:hover .case-row-title { opacity: 0.6; }
+    .case-row-title { font-size: 2rem; font-weight: 700; transition: opacity 0.2s; letter-spacing: -0.02em; }
+    .case-row-icon { font-size: 2rem; color: var(--text-black); font-weight: 300; }
+
+    /* Responsive adjustments */
+    @media (max-width: 1024px) {
+      .hero-grid, .about-cols, .challenge-grid, .results-grid, .contact-grid {
+        grid-template-columns: 1fr;
+      }
+      .services-grid { grid-template-columns: 1fr; gap: 3rem; }
+      
+      .sol-img-large { width: 100%; }
+      .sol-text-float { position: relative; width: 100%; transform: none; top: auto; right: auto; left: auto; box-shadow: none; padding: 3rem 0 0 0; }
+      .sol-block-wrapper.reverse .sol-text-float { left: auto; padding: 3rem 0 0 0; }
+      .sol-block-wrapper { padding: 4rem 0; }
+      
+      .res-right-stats { padding-top: 4rem; }
     }
   </style>
 </head>
-<body class="c-body-cs" style="background-color: #041830; color: white; font-family: 'Inter', sans-serif;">
-  <div class="page-wrapper">
+<body>
+
+  <!-- ==============================================
+       1. HERO (PRETO)
+       ============================================== -->
+  <section class="theme-black">
+    <div class="container">
+      <div class="breadcrumbs">
+        Home / Cases / PriceFleet
+      </div>
+      <div class="hero-grid">
+        <div class="hero-image-ph">[MOCKUP CAPA]</div>
+        <div class="hero-content">
+          <div class="hero-tags">
+            <span class="hero-tag">Branding</span>
+            <span class="hero-tag">Fábrica de Software</span>
+          </div>
+          <h1 class="hero-title">Crescimento de 23,2% em novos usuários.</h1>
+          <p class="hero-desc">Como a estruturação completa da plataforma impulsionou as vendas no setor corporativo.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ==============================================
+       2. SOBRE O CLIENTE (BRANCO)
+       ============================================== -->
+  <section class="theme-white section-pad">
+    <div class="container">
+      <div class="about-top">
+        <h2 class="about-title">Sobre a Empresa</h2>
+        <p class="about-lead">Redefinimos o posicionamento no mercado resolvendo a falta de diferenciação através de uma interface robusta e moderna.</p>
+      </div>
+      <div class="about-cols">
+        <p>A precificação sempre foi um processo altamente complexo. Integrando bases de dados do mercado automotivo e variáveis críticas de manutenção, o sistema precisa fornecer segurança total na negociação de cada veículo, sem atrasos.</p>
+        <p>Desenvolvemos uma solução escalável, focando não apenas na funcionalidade, mas em criar uma experiência visual limpa e impactante que transmite inovação clínica e eficácia para os tomadores de decisão.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ==============================================
+       3. SERVIÇOS PRESTADOS (CINZA CLARO)
+       ============================================== -->
+  <section class="theme-gray section-pad">
+    <div class="container">
+      <div class="services-top">
+        <h2 class="services-title">Serviços prestados</h2>
+        <p class="services-desc">As frentes executadas para estruturar a nova plataforma.</p>
+      </div>
+      <div class="services-grid">
+        <div class="service-card">
+          <div class="service-icon">
+            <svg viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path fill-rule="evenodd" clip-rule="evenodd" d="M32 0V24C18.745 24 8 13.255 8 0H32ZM32 64V40C45.255 40 56 50.745 56 64H32Z" fill="#111"/>
+              <path fill-rule="evenodd" clip-rule="evenodd" d="M0 32H24C24 45.255 13.255 56 0 56V32ZM64 32H40C40 18.745 50.745 8 64 8V32Z" fill="#111"/>
+            </svg>
+          </div>
+          <h3 class="service-name">Estratégia de marca</h3>
+          <p class="service-text">Antes de ter uma ótima aparência, você precisa de uma ótima história. Trabalhamos com você para responder às grandes perguntas: Quem é você, o que te torna especial e como comunicar isso de uma forma que realmente conecte com seus clientes?</p>
+          <div class="service-arrow">
+            <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path d="M7 17L17 7" stroke="#111" stroke-width="1.5" stroke-linecap="round"/>
+              <path d="M7 7H17V17" stroke="#111" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+          </div>
+        </div>
+        <div class="service-card">
+          <div class="service-icon">
+            <svg viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path fill-rule="evenodd" clip-rule="evenodd" d="M32 0V24C18.745 24 8 13.255 8 0H32ZM32 64V40C45.255 40 56 50.745 56 64H32Z" fill="#111"/>
+              <path fill-rule="evenodd" clip-rule="evenodd" d="M0 32H24C24 45.255 13.255 56 0 56V32ZM64 32H40C40 18.745 50.745 8 64 8V32Z" fill="#111"/>
+            </svg>
+          </div>
+          <h3 class="service-name">Identidade visual criativa</h3>
+          <p class="service-text">É aqui que sua marca ganha vida visualmente. Nossa equipe criativa desenvolverá um sistema visual completo, que inclui tudo, desde seu logotipo e paleta de cores até o estilo de suas fotos, criando uma aparência profissional, coesa e memorável.</p>
+          <div class="service-arrow">
+            <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path d="M7 17L17 7" stroke="#111" stroke-width="1.5" stroke-linecap="round"/>
+              <path d="M7 7H17V17" stroke="#111" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+          </div>
+        </div>
+        <div class="service-card">
+          <div class="service-icon">
+            <svg viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path fill-rule="evenodd" clip-rule="evenodd" d="M32 0V24C18.745 24 8 13.255 8 0H32ZM32 64V40C45.255 40 56 50.745 56 64H32Z" fill="#111"/>
+              <path fill-rule="evenodd" clip-rule="evenodd" d="M0 32H24C24 45.255 13.255 56 0 56V32ZM64 32H40C40 18.745 50.745 8 64 8V32Z" fill="#111"/>
+            </svg>
+          </div>
+          <h3 class="service-name">Design de UI/UX</h3>
+          <p class="service-text">Traduzimos a sua nova identidade de marca em uma experiência digital perfeita. Garantimos que a história, a mensagem e os elementos visuais da sua marca estejam integrados em todas as partes do seu site. Nossa equipe também trabalha para garantir que os usuários tenham uma experiência fluida, envolvente e intuitiva, que reflita consistentemente os valores essenciais da sua marca.</p>
+          <div class="service-arrow">
+            <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path d="M7 17L17 7" stroke="#111" stroke-width="1.5" stroke-linecap="round"/>
+              <path d="M7 7H17V17" stroke="#111" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ==============================================
+       4. O DESAFIO (PRETO)
+       ============================================== -->
+  <section class="theme-black section-pad">
+    <div class="container">
+      <div class="challenge-top">
+        <h2 class="challenge-title">O Desafio</h2>
+        <p class="challenge-subtitle">Analisamos a operação para identificar os problemas que impediam a expansão.</p>
+      </div>
+      <div class="challenge-grid">
+        <div class="challenge-images">
+          <div class="ch-img-ph">[IMAGEM DESAFIO 1]</div>
+          <div class="ch-img-ph">[IMAGEM DESAFIO 2]</div>
+          <div class="ch-img-ph">[IMAGEM DESAFIO 3]</div>
+        </div>
+        <div class="challenge-list">
+          <div class="ch-item">
+            <span class="ch-number">01</span>
+            <h3 class="ch-item-title">Excesso de dados manuais</h3>
+            <p class="ch-item-desc">A operação dependia de processos descentralizados e entrada manual constante, o que aumentava drasticamente a taxa de erro financeiro.</p>
+          </div>
+          <div class="ch-item">
+            <span class="ch-number">02</span>
+            <h3 class="ch-item-title">Interface confusa</h3>
+            <p class="ch-item-desc">O sistema legado apresentava informações desencontradas, dificultando a tomada de decisão rápida pelas lideranças.</p>
+          </div>
+          <div class="ch-item">
+            <span class="ch-number">03</span>
+            <h3 class="ch-item-title">Falta de padronização</h3>
+            <p class="ch-item-desc">Não havia uma identidade visual consolidada que passasse confiança institucional e tecnológica para os clientes finais.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ==============================================
+       5. A SOLUÇÃO (BRANCO -> CINZA)
+       ============================================== -->
+  <section class="theme-white section-pad" style="padding-bottom: 0;">
+    <div class="container">
+      <div class="sol-top">
+        <h2 class="sol-title">A Solução</h2>
+      </div>
+    </div>
     
-
-    <!-- ==============================================
-         CASE STUDY HERO SECTION
-         ============================================== -->
-    <style>
-      /* Case Study Specific Styles */
-      .cs-hero {
-        padding: 12rem 5% 4rem;
-        max-width: 1400px;
-        margin: 0 auto;
-        display: grid;
-        grid-template-columns: 1fr 300px;
-        gap: 4rem;
-        align-items: end;
-      }
-      .cs-title {
-        font-size: clamp(3rem, 8vw, 7rem);
-        line-height: 1.05;
-        font-weight: 800;
-        letter-spacing: -0.03em;
-        margin-bottom: 2rem;
-      }
-      .cs-intro-text {
-        font-size: clamp(1.1rem, 2vw, 1.4rem);
-        line-height: 1.5;
-        color: rgba(255, 255, 255, 0.7);
-        max-width: 800px;
-      }
-      .cs-meta-sidebar {
-        display: flex;
-        flex-direction: column;
-        gap: 2rem;
-        padding-bottom: 0.5rem;
-      }
-      .cs-meta-block {
-        display: flex;
-        flex-direction: column;
-        gap: 0.5rem;
-      }
-      .cs-meta-label {
-        font-size: 0.8rem;
-        text-transform: uppercase;
-        letter-spacing: 0.1em;
-        color: var(--primary, #05AAE2);
-        font-weight: 600;
-      }
-      .cs-meta-value {
-        font-size: 1.1rem;
-        font-weight: 500;
-      }
-      
-      .cs-hero-media {
-        max-width: 1400px;
-        margin: 0 auto 8rem;
-        padding: 0 5%;
-      }
-      .cs-hero-media .media-container {
-        width: 100%;
-        height: 70vh;
-        min-height: 500px;
-        background: linear-gradient(145deg, #0d1e33, #08121f);
-        border-radius: 20px;
-        border: 1px solid rgba(255, 255, 255, 0.05);
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        overflow: hidden;
-        position: relative;
-        box-shadow: 0 30px 60px rgba(0, 0, 0, 0.5);
-      }
-      .cs-hero-media img {
-        width: 100%;
-        height: 100%;
-        object-fit: cover;
-        opacity: 0.8;
-        transition: transform 0.6s ease;
-      }
-      .cs-hero-media .media-container:hover img {
-        transform: scale(1.03);
-      }
-
-      /* ==============================================
-         O DESAFIO
-         ============================================== */
-      .cs-section {
-        padding: 6rem 5%;
-        max-width: 1400px;
-        margin: 0 auto;
-      }
-      .cs-challenge {
-        display: grid;
-        grid-template-columns: 1fr 1.5fr;
-        gap: 6rem;
-        border-top: 1px solid rgba(255, 255, 255, 0.1);
-        padding-top: 6rem;
-      }
-      .cs-section-title {
-        font-size: clamp(2rem, 5vw, 4rem);
-        font-weight: 800;
-        line-height: 1.1;
-        letter-spacing: -0.02em;
-        color: #fff;
-      }
-      .cs-section-text {
-        font-size: clamp(1.1rem, 1.5vw, 1.3rem);
-        line-height: 1.7;
-        color: rgba(255, 255, 255, 0.8);
-      }
-      .cs-section-text p {
-        margin-bottom: 1.5rem;
-      }
-
-      /* ==============================================
-         A SOLUÇÃO (Visual Grid)
-         ============================================== */
-      .cs-solution-grid {
-        display: grid;
-        grid-template-columns: repeat(2, 1fr);
-        gap: 2rem;
-        margin-top: 4rem;
-      }
-      .cs-grid-item {
-        background: #091a2e;
-        border-radius: 16px;
-        padding: 3rem;
-        border: 1px solid rgba(255, 255, 255, 0.05);
-        display: flex;
-        flex-direction: column;
-        gap: 2rem;
-        transition: transform 0.3s ease;
-      }
-      .cs-grid-item:hover {
-        transform: translateY(-5px);
-        background: #0a1f36;
-      }
-      .cs-grid-item.full-width {
-        grid-column: 1 / -1;
-        display: grid;
-        grid-template-columns: 1fr 1fr;
-        align-items: center;
-      }
-      .cs-grid-placeholder {
-        width: 100%;
-        height: 300px;
-        background: rgba(5, 170, 226, 0.1);
-        border-radius: 12px;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        color: rgba(5, 170, 226, 0.5);
-        font-weight: 600;
-      }
-      .cs-grid-item.full-width .cs-grid-placeholder {
-        height: 500px;
-      }
-      .cs-grid-content h3 {
-        font-size: 2rem;
-        margin-bottom: 1rem;
-      }
-
-      /* ==============================================
-         O IMPACTO (Resultados)
-         ============================================== */
-      .cs-impact-grid {
-        display: grid;
-        grid-template-columns: repeat(3, 1fr);
-        gap: 3rem;
-        margin-top: 4rem;
-        text-align: center;
-      }
-      .cs-impact-number {
-        font-size: clamp(3rem, 6vw, 5rem);
-        font-weight: 800;
-        color: var(--primary, #05AAE2);
-        line-height: 1;
-        margin-bottom: 1rem;
-      }
-      .cs-impact-label {
-        font-size: 1.1rem;
-        text-transform: uppercase;
-        letter-spacing: 0.1em;
-        color: rgba(255, 255, 255, 0.6);
-      }
-
-      /* ==============================================
-         NEXT PROJECT CTA
-         ============================================== */
-      .cs-next-project {
-        padding: 10rem 5%;
-        text-align: center;
-        background: linear-gradient(180deg, transparent, #020a14);
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        justify-content: center;
-        gap: 2rem;
-      }
-      .cs-next-label {
-        text-transform: uppercase;
-        letter-spacing: 0.2em;
-        color: rgba(255, 255, 255, 0.5);
-        font-weight: 600;
-      }
-      .cs-next-title {
-        font-size: clamp(4rem, 10vw, 8rem);
-        font-weight: 800;
-        letter-spacing: -0.04em;
-        line-height: 1;
-        transition: color 0.3s ease;
-      }
-      .cs-next-title:hover {
-        color: var(--primary, #05AAE2);
-      }
-
-      /* Responsive */
-      @media (max-width: 991px) {
-        .cs-hero, .cs-challenge, .cs-grid-item.full-width {
-          grid-template-columns: 1fr;
-          gap: 3rem;
-        }
-        .cs-solution-grid {
-          grid-template-columns: 1fr;
-        }
-        .cs-impact-grid {
-          grid-template-columns: 1fr;
-          gap: 2rem;
-        }
-        .cs-hero { padding-top: 8rem; }
-      }
-    </style>
-
-    <main>
-      <!-- HERO -->
-      <section class="cs-hero">
-        <div class="cs-hero-main">
-          <h1 class="cs-title">PriceFleet</h1>
-          <p class="cs-intro-text">
-            De planilhas e achismo a uma plataforma SaaS que automatiza a precificação de frotas, simula cenários financeiros e traz mais controle às locadoras.
-          </p>
+    <!-- Bloco 1 -->
+    <div class="container">
+      <div class="sol-block-wrapper">
+        <div class="sol-img-large">[MOCKUP PRINCIPAL ESTRUTURADO]</div>
+        <div class="sol-text-float">
+          <h3 class="sol-text-title">Hierarquia Visual Clara</h3>
+          <p class="sol-text-desc">Limpamos completamente os ruídos visuais. Agora as informações são dispostas com respiro editorial, guiando o olho do usuário exatamente para as métricas que importam.</p>
         </div>
-        <aside class="cs-meta-sidebar">
-          <div class="cs-meta-block">
-            <span class="cs-meta-label">Serviços</span>
-            <span class="cs-meta-value">Fábrica de Software<br>Desenvolvimento Web</span>
-          </div>
-          <div class="cs-meta-block">
-            <span class="cs-meta-label">Indústria</span>
-            <span class="cs-meta-value">Mobilidade / Locação</span>
-          </div>
-          <div class="cs-meta-block">
-            <span class="cs-meta-label">Ano</span>
-            <span class="cs-meta-value">2023 - 2024</span>
-          </div>
-        </aside>
-      </section>
+      </div>
+    </div>
+  </section>
 
-      <!-- HERO MEDIA -->
-      <section class="cs-hero-media">
-        <div class="media-container">
-          <!-- PLACEHOLDER IMAGEM/VÍDEO PRINCIPAL -->
-          <div class="cs-grid-placeholder" style="height: 100%; border-radius: 0; background: transparent;">
-            [Imagem de Capa do Case]
+  <!-- Bloco 2 (Fundo Cinza) -->
+  <section class="theme-gray">
+    <div class="container">
+      <div class="sol-block-wrapper reverse">
+        <div class="sol-img-large">[MOCKUP DE PAINEL]</div>
+        <div class="sol-text-float">
+          <h3 class="sol-text-title">Navegação sem atrito</h3>
+          <p class="sol-text-desc">O fluxo de telas foi redesenhado para que processos de simulação que antes levavam dez passos fossem reduzidos para apenas três cliques bem orientados.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Bloco 3 -->
+  <section class="theme-white section-pad">
+    <div class="container">
+      <div class="sol-full-image">[MOCKUP WIDE DA SOLUÇÃO INTEGRA]</div>
+    </div>
+  </section>
+
+  <!-- ==============================================
+       6. OS RESULTADOS (PRETO)
+       ============================================== -->
+  <section class="theme-black section-pad">
+    <div class="container">
+      <div class="results-grid">
+        <div class="res-left">
+          <h2 class="res-left-title">Os resultados</h2>
+          <p class="res-left-desc">O impacto direto da nova identidade visual aliada a uma arquitetura tecnológica superior, refletido imediatamente nas métricas de engajamento.</p>
+          <div class="res-gallery">
+            <div class="res-gallery-img">[TELA 1]</div>
+            <div class="res-gallery-img">[TELA 2]</div>
           </div>
         </div>
-      </section>
-
-      <!-- O DESAFIO -->
-      <section class="cs-section">
-        <div class="cs-challenge">
-          <h2 class="cs-section-title">O Desafio</h2>
-          <div class="cs-section-text">
-            <p>
-              A precificação de frotas para locadoras sempre foi um processo complexo, manual e extremamente suscetível a erros. Planilhas desconexas, dificuldade em prever a depreciação dos veículos e falta de clareza sobre o ROI real corroíam a margem de lucro das operações.
-            </p>
-            <p>
-              O cliente precisava de uma solução que centralizasse dados de mercado, automatizasse cálculos complexos (como valor residual, taxas de juros e custos operacionais) e permitisse criar cenários simulados em segundos, não em dias.
-            </p>
+        <div class="res-right-stats">
+          <div class="stat-item">
+            <span class="stat-number">32%</span>
+            <span class="stat-label">Aumento em conversão direta</span>
+          </div>
+          <div class="stat-item">
+            <span class="stat-number">36%</span>
+            <span class="stat-label">Redução do tempo de tarefa</span>
+          </div>
+          <div class="stat-item">
+            <span class="stat-number">104%</span>
+            <span class="stat-label">Crescimento de sessões Mobile</span>
           </div>
         </div>
-      </section>
+      </div>
+    </div>
+  </section>
 
-      <!-- A SOLUÇÃO -->
-      <section class="cs-section">
-        <h2 class="cs-section-title" style="margin-bottom: 2rem;">A Solução</h2>
-        <div class="cs-solution-grid">
-          
-          <div class="cs-grid-item full-width">
-            <div class="cs-grid-content">
-              <h3>Plataforma SaaS Centralizada</h3>
-              <p class="cs-section-text">Arquitetamos um ecossistema completo onde gestores podem criar contratos customizados, ajustando variáveis como quilometragem e prazo, recebendo o cálculo exato do preço de locação ideal para garantir a margem desejada.</p>
-            </div>
-            <div class="cs-grid-placeholder">
-              [Mockup do Dashboard SaaS]
-            </div>
-          </div>
-
-          <div class="cs-grid-item">
-            <div class="cs-grid-placeholder" style="height: 250px; margin-bottom: 1rem;">
-              [Mockup Tela de Simulação]
-            </div>
-            <div class="cs-grid-content">
-              <h3>Simulação em Tempo Real</h3>
-              <p class="cs-section-text">O motor de cálculo permite testar múltiplos cenários financeiros instantaneamente, fornecendo segurança na negociação com clientes B2B.</p>
-            </div>
-          </div>
-
-          <div class="cs-grid-item">
-            <div class="cs-grid-placeholder" style="height: 250px; margin-bottom: 1rem;">
-              [Mockup Relatórios]
-            </div>
-            <div class="cs-grid-content">
-              <h3>Business Intelligence</h3>
-              <p class="cs-section-text">Painéis gerenciais que acompanham a rentabilidade por contrato, veículo e cliente, transformando dados brutos em decisões estratégicas.</p>
-            </div>
-          </div>
-
+  <!-- ==============================================
+       7. CONTATO (BRANCO)
+       ============================================== -->
+  <section class="theme-white section-pad">
+    <div class="container">
+      <div class="contact-grid">
+        <div class="contact-media">
+          <!-- Gráfico base Preto com o X no meio -->
         </div>
-      </section>
-
-      <!-- O IMPACTO -->
-      <section class="cs-section" style="padding-top: 8rem; padding-bottom: 8rem;">
-        <h2 class="cs-section-title" style="text-align: center;">O Impacto</h2>
-        <div class="cs-impact-grid">
-          <div>
-            <div class="cs-impact-number">1.200+</div>
-            <div class="cs-impact-label">Veículos Monitorados</div>
-          </div>
-          <div>
-            <div class="cs-impact-number">R$ 48k</div>
-            <div class="cs-impact-label">Economia Mensal</div>
-          </div>
-          <div>
-            <div class="cs-impact-number">100%</div>
-            <div class="cs-impact-label">Automação de Preços</div>
-          </div>
+        <div class="contact-form">
+          <h2 class="contact-title">Vamos trabalhar juntos.</h2>
+          <form>
+            <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 3rem;">
+              <div class="form-group">
+                <label class="form-label">Nome *</label>
+                <input type="text" class="form-input" />
+              </div>
+              <div class="form-group">
+                <label class="form-label">Sobrenome *</label>
+                <input type="text" class="form-input" />
+              </div>
+            </div>
+            <div class="form-group">
+              <label class="form-label">Email corporativo *</label>
+              <input type="email" class="form-input" />
+            </div>
+            <div class="form-group">
+              <label class="form-label">Mensagem</label>
+              <input type="text" class="form-input" />
+            </div>
+            <button class="btn-submit" type="button">Enviar</button>
+          </form>
         </div>
-      </section>
+      </div>
+    </div>
+  </section>
 
-      <!-- NEXT PROJECT -->
-      <a href="case-modelo.html" style="text-decoration: none;">
-        <section class="cs-next-project">
-          <div class="cs-next-label">Próximo Estudo de Caso</div>
-          <h2 class="cs-next-title">SGAE <span style="color: var(--primary, #05AAE2);">→</span></h2>
-        </section>
-      </a>
+  <!-- ==============================================
+       8. OUTROS CASES (BRANCO)
+       ============================================== -->
+  <section class="theme-white more-cases">
+    <div class="container">
+      <div class="cases-list">
+        <div class="case-row">
+          <span class="case-row-title">Estudos de caso SGAE</span>
+          <span class="case-row-icon">→</span>
+        </div>
+        <div class="case-row">
+          <span class="case-row-title">Estudos de caso Datacar</span>
+          <span class="case-row-icon">→</span>
+        </div>
+        <div class="case-row">
+          <span class="case-row-title">Estudos de caso Startvet</span>
+          <span class="case-row-icon">→</span>
+        </div>
+      </div>
+    </div>
+  </section>
 
-    </main>
-
-    
-  </div>
-
-  <!-- Scripts padrão da Rumo (GSAP etc) -->
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
-  <script>
-    // Interações básicas de Scroll Reveal
-    document.addEventListener("DOMContentLoaded", () => {
-      if (typeof gsap !== 'undefined') {
-        gsap.from(".cs-title", { opacity: 0, y: 50, duration: 1, delay: 0.2 });
-        gsap.from(".cs-intro-text", { opacity: 0, y: 30, duration: 1, delay: 0.4 });
-        gsap.from(".cs-meta-sidebar", { opacity: 0, x: 30, duration: 1, delay: 0.6 });
-        gsap.from(".cs-hero-media", { opacity: 0, y: 100, duration: 1.2, delay: 0.5, ease: "power3.out" });
-      }
-    });
-  </script>
 </body>
 </html>

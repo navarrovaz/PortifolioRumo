@@ -1,0 +1,679 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <title>Case Agente-Inteligente-RH — Rumo Soluções</title>
+  
+  <link rel="preconnect" href="https://fonts.googleapis.com"/>
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet"/>
+
+  <style>
+    /* ========================================================
+       RESET & TOKENS
+       ======================================================== */
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    
+    :root {
+      /* Estritamente Preto, Branco e Cinza */
+      --bg-black:      #050505; /* Preto Profundo */
+      --bg-white:      #ffffff;
+      --bg-light-gray: #f5f5f5; /* Cinza claro suave */
+      
+      --text-black:    #111111;
+      --text-white:    #ffffff;
+      --text-gray-dark:#555555;
+      --text-gray-light:rgba(255,255,255,0.6);
+      
+      --border-dark:   rgba(255,255,255,0.15);
+      --border-light:  rgba(0,0,0,0.1);
+    }
+
+    body {
+      font-family: 'Inter', sans-serif;
+      line-height: 1.5;
+      -webkit-font-smoothing: antialiased;
+      overflow-x: hidden;
+      font-size: 16px;
+    }
+
+    a { text-decoration: none; color: inherit; }
+    img { max-width: 100%; display: block; }
+    ul { list-style: none; }
+
+    /* Helper Background Classes */
+    .theme-black { background-color: var(--bg-black); color: var(--text-white); }
+    .theme-white { background-color: var(--bg-white); color: var(--text-black); }
+    .theme-gray  { background-color: var(--bg-light-gray); color: var(--text-black); }
+
+    /* ========================================================
+       GRID ESPAÇOSO (Herdado do Index)
+       ======================================================== */
+    .container {
+      width: 100%;
+      max-width: 1720px;
+      margin: 0 auto;
+      padding: 0 clamp(1.5rem, 3.5vw, 4rem);
+    }
+
+    .section-pad {
+      padding: 8rem 0;
+    }
+
+    /* ========================================================
+       1. HERO SECTION (THEME BLACK)
+       ======================================================== */
+    .breadcrumbs {
+      padding: 2rem 0 4rem;
+      font-size: 0.85rem;
+      text-transform: uppercase;
+      letter-spacing: 0.15em;
+      color: var(--text-gray-light);
+    }
+    
+    .hero-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 6rem;
+      align-items: center;
+      padding-bottom: 8rem;
+    }
+
+    .hero-image-ph {
+      width: 100%;
+      aspect-ratio: 4/3;
+      background: #1a1a1a;
+      border: 1px solid var(--border-dark);
+      display: flex; align-items: flex-end; justify-content: flex-end;
+      padding: 2rem;
+      color: rgba(255,255,255,0.3);
+      font-size: 0.85rem; letter-spacing: 0.1em;
+    }
+
+    .hero-tags {
+      display: flex; gap: 1rem; margin-bottom: 2rem;
+    }
+    .hero-tag {
+      font-size: 0.85rem; font-weight: 700; text-transform: uppercase;
+      color: var(--text-white); letter-spacing: 0.15em;
+    }
+
+    .hero-title {
+      font-size: clamp(2.5rem, 4.5vw, 4.2rem);
+      font-weight: 800;
+      line-height: 1.1;
+      letter-spacing: -0.03em;
+      margin-bottom: 2rem;
+    }
+
+    .hero-desc {
+      font-size: clamp(1.1rem, 1.5vw, 1.3rem);
+      color: var(--text-gray-light);
+      max-width: 600px;
+    }
+
+    /* ========================================================
+       2. SOBRE O CLIENTE (THEME WHITE)
+       ======================================================== */
+    .about-top {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+      margin-bottom: 4rem;
+    }
+    .about-title {
+      font-size: 1rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.15em;
+      margin-bottom: 2rem;
+    }
+    .about-lead {
+      font-size: clamp(1.8rem, 3vw, 2.5rem);
+      font-weight: 700;
+      color: var(--text-black);
+      max-width: 1000px;
+      line-height: 1.3;
+      letter-spacing: -0.02em;
+    }
+    .about-cols {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 5rem;
+      font-size: 1.1rem;
+      color: var(--text-gray-dark);
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+
+    /* ========================================================
+       3. SERVIÇOS PRESTADOS (THEME GRAY)
+       ======================================================== */
+    .services-top { margin-bottom: 5rem; }
+    .services-title { font-size: 2.5rem; font-weight: 700; margin-bottom: 1rem; letter-spacing: -0.02em; }
+    .services-desc { font-size: 1.1rem; color: var(--text-gray-dark); }
+    
+    .services-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 2rem;
+    }
+    .service-card {
+      display: flex;
+      flex-direction: column;
+      background: var(--bg-white);
+      border: 1px solid var(--border-light);
+      border-radius: 6px;
+      padding: 3rem;
+      min-height: 480px;
+    }
+    .service-icon {
+      width: 48px; height: 48px; margin-bottom: 4rem;
+    }
+    .service-icon svg { width: 100%; height: 100%; }
+    .service-name { font-weight: 400; font-size: 1.8rem; margin-bottom: 1.5rem; letter-spacing: -0.02em; color: var(--text-black); }
+    .service-text { font-size: 0.95rem; color: var(--text-gray-dark); margin-bottom: 4rem; line-height: 1.6; }
+    .service-arrow {
+      margin-top: auto;
+      width: 24px; height: 24px;
+    }
+    .service-arrow svg { width: 100%; height: 100%; }
+
+    /* ========================================================
+       4. O DESAFIO (THEME BLACK)
+       ======================================================== */
+    .challenge-top {
+      text-align: center;
+      margin-bottom: 6rem;
+    }
+    .challenge-title { font-size: 3.5rem; font-weight: 800; margin-bottom: 1rem; letter-spacing: -0.02em; }
+    .challenge-subtitle { font-size: 1.2rem; color: var(--text-gray-light); max-width: 800px; margin: 0 auto; line-height: 1.6; }
+
+    .challenge-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 6rem;
+    }
+
+    .challenge-images {
+      display: flex; flex-direction: column; gap: 2rem;
+    }
+    .ch-img-ph {
+      width: 100%; height: 280px; background: #1a1a1a;
+      display: flex; align-items: center; justify-content: center; color: rgba(255,255,255,0.2);
+    }
+
+    .challenge-list {
+      display: flex; flex-direction: column; gap: 4rem; justify-content: center;
+    }
+    .ch-item {
+      display: flex; flex-direction: column; gap: 1rem;
+    }
+    .ch-number {
+      font-size: 1.2rem; font-weight: 700; color: var(--text-white); border-bottom: 1px solid var(--border-dark); padding-bottom: 0.5rem; width: 40px;
+    }
+    .ch-item-title { font-size: 1.8rem; font-weight: 700; letter-spacing: -0.02em; }
+    .ch-item-desc { font-size: 1.1rem; color: var(--text-gray-light); line-height: 1.6; }
+
+    /* ========================================================
+       5. A SOLUÇÃO (THEME WHITE / GRAY)
+       ======================================================== */
+    .sol-top { margin-bottom: 4rem; }
+    .sol-title { font-size: 2.5rem; font-weight: 700; }
+
+    .sol-block-wrapper {
+      position: relative;
+      padding: 6rem 0;
+    }
+    .sol-img-large {
+      width: 75%;
+      aspect-ratio: 16/9;
+      background: #eaeaea;
+      display: flex; align-items: center; justify-content: center; color: #999;
+    }
+    .sol-text-float {
+      position: absolute;
+      top: 50%;
+      right: 5%;
+      transform: translateY(-50%);
+      width: 40%;
+      background: var(--bg-white);
+      padding: 4rem;
+      box-shadow: 0 30px 60px rgba(0,0,0,0.08);
+      z-index: 10;
+    }
+    .sol-block-wrapper.reverse .sol-img-large {
+      margin-left: auto;
+    }
+    .sol-block-wrapper.reverse .sol-text-float {
+      right: auto;
+      left: 5%;
+    }
+
+    .sol-text-title { font-size: 2rem; font-weight: 700; margin-bottom: 1.5rem; letter-spacing: -0.02em; }
+    .sol-text-desc { font-size: 1.1rem; color: var(--text-gray-dark); }
+
+    .sol-full-image {
+      width: 100%; aspect-ratio: 21/9; background: #e0e0e0;
+      display: flex; align-items: center; justify-content: center; color: #999;
+      margin-top: 6rem;
+    }
+
+    /* ========================================================
+       6. OS RESULTADOS (THEME BLACK)
+       ======================================================== */
+    .results-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 6rem;
+    }
+    .res-left-title { font-size: 4rem; font-weight: 800; margin-bottom: 2rem; letter-spacing: -0.03em; }
+    .res-left-desc { font-size: 1.2rem; color: var(--text-gray-light); margin-bottom: 4rem; max-width: 600px; }
+    
+    .res-gallery {
+      display: grid; grid-template-columns: 1fr 1fr; gap: 2rem;
+    }
+    .res-gallery-img {
+      width: 100%; aspect-ratio: 4/5; background: #1a1a1a;
+      display: flex; align-items: center; justify-content: center; color: rgba(255,255,255,0.2);
+    }
+
+    .res-right-stats {
+      display: flex; flex-direction: column; gap: 5rem;
+      justify-content: center;
+    }
+    .stat-item { display: flex; flex-direction: column; }
+    .stat-number { font-size: clamp(5rem, 8vw, 8rem); font-weight: 300; color: var(--text-white); line-height: 0.9; margin-bottom: 1rem; letter-spacing: -0.04em; }
+    .stat-label { font-size: 1.1rem; font-weight: 600; text-transform: uppercase; letter-spacing: 0.15em; color: var(--text-gray-light); }
+
+    /* ========================================================
+       7. VAMOS TRABALHAR JUNTOS (THEME WHITE)
+       ======================================================== */
+    .contact-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 6rem;
+      align-items: center;
+    }
+    .contact-media {
+      width: 100%; aspect-ratio: 1/1; background: var(--bg-black);
+      display: flex; align-items: center; justify-content: center;
+      position: relative;
+    }
+    /* Simple abstract graphic like reference */
+    .contact-media::after {
+      content: '✕'; font-size: 15rem; color: rgba(255,255,255,0.05); font-weight: 100;
+    }
+
+    .contact-title { font-size: 4rem; font-weight: 800; margin-bottom: 3rem; letter-spacing: -0.03em; }
+    
+    .form-group { margin-bottom: 2.5rem; }
+    .form-label { display: block; font-size: 0.85rem; font-weight: 700; margin-bottom: 1rem; text-transform: uppercase; color: var(--text-gray-dark); letter-spacing: 0.1em; }
+    .form-input {
+      width: 100%; border: none; border-bottom: 2px solid var(--border-light);
+      padding: 0.5rem 0 1rem; font-size: 1.2rem; font-family: 'Inter', sans-serif;
+      outline: none; background: transparent; transition: border-color 0.3s;
+    }
+    .form-input:focus { border-color: var(--text-black); }
+    
+    .btn-submit {
+      background: var(--bg-black); color: var(--text-white); border: none;
+      padding: 1.2rem 3rem; font-weight: 700; cursor: pointer; text-transform: uppercase; letter-spacing: 0.1em;
+      margin-top: 1rem; transition: opacity 0.3s;
+    }
+    .btn-submit:hover { opacity: 0.8; }
+
+    /* ========================================================
+       8. ESTUDOS DE CASO (THEME WHITE)
+       ======================================================== */
+    .more-cases { padding-top: 2rem; padding-bottom: 8rem; }
+    .cases-list {
+      border-top: 2px solid var(--border-light);
+    }
+    .case-row {
+      display: flex; justify-content: space-between; align-items: center;
+      padding: 3rem 0; border-bottom: 2px solid var(--border-light);
+      cursor: pointer;
+    }
+    .case-row:hover .case-row-title { opacity: 0.6; }
+    .case-row-title { font-size: 2rem; font-weight: 700; transition: opacity 0.2s; letter-spacing: -0.02em; }
+    .case-row-icon { font-size: 2rem; color: var(--text-black); font-weight: 300; }
+
+    /* Responsive adjustments */
+    @media (max-width: 1024px) {
+      .hero-grid, .about-cols, .challenge-grid, .results-grid, .contact-grid {
+        grid-template-columns: 1fr;
+      }
+      .services-grid { grid-template-columns: 1fr; gap: 3rem; }
+      
+      .sol-img-large { width: 100%; }
+      .sol-text-float { position: relative; width: 100%; transform: none; top: auto; right: auto; left: auto; box-shadow: none; padding: 3rem 0 0 0; }
+      .sol-block-wrapper.reverse .sol-text-float { left: auto; padding: 3rem 0 0 0; }
+      .sol-block-wrapper { padding: 4rem 0; }
+      
+      .res-right-stats { padding-top: 4rem; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- ==============================================
+       1. HERO (PRETO)
+       ============================================== -->
+  <section class="theme-black">
+    <div class="container">
+      <div class="breadcrumbs">
+        Home / Cases / Agente-Inteligente-RH
+      </div>
+      <div class="hero-grid">
+        <div class="hero-image-ph">[MOCKUP CAPA AGENTE RH]</div>
+        <div class="hero-content">
+          <div class="hero-tags">
+            <span class="hero-tag">Rumo Soluções</span>
+            <span class="hero-tag">Inteligência Artificial</span>
+          </div>
+          <h1 class="hero-title">Do recrutamento manual ao ecossistema de IA orquestrado por agentes inteligentes.</h1>
+          <p class="hero-desc">Triagem inteligente de currículos, qualificação interativa via WhatsApp e agendamento automatizado de entrevistas integrados ao ClickUp e Google Calendar.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ==============================================
+       2. SOBRE A SOLUÇÃO (BRANCO)
+       ============================================== -->
+  <section class="theme-white section-pad">
+    <div class="container">
+      <div class="about-top">
+        <h2 class="about-title">Sobre o Projeto</h2>
+        <p class="about-lead">Desenvolvemos o Agente Inteligente de RH do zero para automatizar o funil de R&S de ponta a ponta.</p>
+      </div>
+      <div class="about-cols">
+        <p>O recrutamento de alto volume, como vagas operacionais e administrativas, costuma sobrecarregar o time de RH com centenas de candidaturas diárias. A triagem manual e a lentidão no primeiro contato geram perda de talentos e ineficiência. A Rumo desenhou sob medida uma solução de parceria híbrida (copiloto).</p>
+        <p>Composta por um orquestrador n8n integrado a modelos de LLM (GPT-4 e Claude), o sistema realiza a leitura inteligente de currículos, a qualificação dos finalistas via WhatsApp e a verificação automática de agendas no Google Calendar, mantendo o controle estratégico com o time de RH.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ==============================================
+       3. SERVIÇOS PRESTADOS (CINZA CLARO)
+       ============================================== -->
+  <section class="theme-gray section-pad">
+    <div class="container">
+      <div class="services-top">
+        <h2 class="services-title">Serviços prestados</h2>
+        <p class="services-desc">As frentes de engenharia e produto executadas para estruturar a plataforma.</p>
+      </div>
+      <div class="services-grid">
+        <div class="service-card">
+          <div class="service-icon">
+            <svg viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path fill-rule="evenodd" clip-rule="evenodd" d="M32 0V24C18.745 24 8 13.255 8 0H32ZM32 64V40C45.255 40 56 50.745 56 64H32Z" fill="#111"/>
+              <path fill-rule="evenodd" clip-rule="evenodd" d="M0 32H24C24 45.255 13.255 56 0 56V32ZM64 32H40C40 18.745 50.745 8 64 8V32Z" fill="#111"/>
+            </svg>
+          </div>
+          <h3 class="service-name">Análise e Integração</h3>
+          <p class="service-text">Mapeamos todas as fases do funil de recrutamento tradicional e identificamos gargalos operacionais críticos. Modelamos um fluxo dinâmico integrado para centralizar dados de candidaturas em uma base única no Google Drive e ClickUp.</p>
+          <div class="service-arrow">
+            <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path d="M7 17L17 7" stroke="#111" stroke-width="1.5" stroke-linecap="round"/>
+              <path d="M7 7H17V17" stroke="#111" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+          </div>
+        </div>
+        <div class="service-card">
+          <div class="service-icon">
+            <svg viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path fill-rule="evenodd" clip-rule="evenodd" d="M32 0V24C18.745 24 8 13.255 8 0H32ZM32 64V40C45.255 40 56 50.745 56 64H32Z" fill="#111"/>
+              <path fill-rule="evenodd" clip-rule="evenodd" d="M0 32H24C24 45.255 13.255 56 0 56V32ZM64 32H40C40 18.745 50.745 8 64 8V32Z" fill="#111"/>
+            </svg>
+          </div>
+          <h3 class="service-name">Desenvolvimento IA</h3>
+          <p class="service-text">Desenvolvemos o orquestrador no n8n integrado com as APIs GPT-4 e Claude. Criamos uma estrutura rígida de outputs em JSON Schema e blindagem de prompts (guardrails) para garantir a segurança operacional e evitar alucinações da IA.</p>
+          <div class="service-arrow">
+            <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path d="M7 17L17 7" stroke="#111" stroke-width="1.5" stroke-linecap="round"/>
+              <path d="M7 7H17V17" stroke="#111" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+          </div>
+        </div>
+        <div class="service-card">
+          <div class="service-icon">
+            <svg viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path fill-rule="evenodd" clip-rule="evenodd" d="M32 0V24C18.745 24 8 13.255 8 0H32ZM32 64V40C45.255 40 56 50.745 56 64H32Z" fill="#111"/>
+              <path fill-rule="evenodd" clip-rule="evenodd" d="M0 32H24C24 45.255 13.255 56 0 56V32ZM64 32H40C40 18.745 50.745 8 64 8V32Z" fill="#111"/>
+            </svg>
+          </div>
+          <h3 class="service-name">Automação e Comunicação</h3>
+          <p class="service-text">Automatizamos a comunicação interativa via Evolution API para WhatsApp e a validação de disponibilidade por meio de uma ferramenta customizada em código integrada ao Google Calendar API, evitando conflitos de agenda.</p>
+          <div class="service-arrow">
+            <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path d="M7 17L17 7" stroke="#111" stroke-width="1.5" stroke-linecap="round"/>
+              <path d="M7 7H17V17" stroke="#111" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ==============================================
+       4. O DESAFIO (PRETO)
+       ============================================== -->
+  <section class="theme-black section-pad">
+    <div class="container">
+      <div class="challenge-top">
+        <h2 class="challenge-title">O Desafio</h2>
+        <p class="challenge-subtitle">Mapeamos a sobrecarga do time de RH com processos lentos de triagem manual em contratações de alta demanda.</p>
+      </div>
+      <div class="challenge-grid">
+        <div class="challenge-images">
+          <div class="ch-img-ph">[MOCKUP TRIAGEM MANUAL DE CURRÍCULOS]</div>
+          <div class="ch-img-ph">[MOCKUP CONFLITOS DE AGENDAMENTO]</div>
+          <div class="ch-img-ph">[MOCKUP DADOS DESORGANIZADOS E DUPLICADOS]</div>
+        </div>
+        <div class="challenge-list">
+          <div class="ch-item">
+            <span class="ch-number">01</span>
+            <h3 class="ch-item-title">Sobrecarga de triagem manual</h3>
+            <p class="ch-item-desc">Vagas operacionais e administrativas recebem mais de 500 currículos em um único dia. Analisar individualmente cada perfil gerava desperdício de tempo e perda de foco em tarefas estratégicas.</p>
+          </div>
+          <div class="ch-item">
+            <span class="ch-number">02</span>
+            <h3 class="ch-item-title">Lentidão no primeiro contato</h3>
+            <p class="ch-item-desc">A demora de dias para iniciar a qualificação comportamental e técnica de candidatos pré-aprovados reduzia a taxa de engajamento dos profissionais e aumentava o tempo de fechamento da vaga.</p>
+          </div>
+          <div class="ch-item">
+            <span class="ch-number">03</span>
+            <h3 class="ch-item-title">Desorganização e furos de agenda</h3>
+            <p class="ch-item-desc">Candidaturas duplicadas em diferentes canais e erros humanos ao propor e registrar horários de entrevistas resultavam em conflitos constantes na agenda do recrutador.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ==============================================
+       5. A SOLUÇÃO (BRANCO -> CINZA)
+       ============================================== -->
+  <section class="theme-white section-pad" style="padding-bottom: 0;">
+    <div class="container">
+      <div class="sol-top">
+        <h2 class="sol-title">A Solução</h2>
+      </div>
+    </div>
+    
+    <!-- Bloco 1 -->
+    <div class="container">
+      <div class="sol-block-wrapper">
+        <div class="sol-img-large">[MOCKUP TRIAGEM E INGESTÃO AUTOMÁTICA]</div>
+        <div class="sol-text-float">
+          <h3 class="sol-text-title">Triagem e Ingestão</h3>
+          <p class="sol-text-desc">A aplicação do candidato aciona webhooks que capturam o currículo, centralizam o arquivo no Google Drive e executam a triagem automatizada com IA. Perfis aderentes ganham um card no ClickUp estruturado em JSON com resumos gerados pela LLM.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Bloco 2 (Fundo Cinza) -->
+  <section class="theme-gray">
+    <div class="container">
+      <div class="sol-block-wrapper reverse">
+        <div class="sol-img-large">[MOCKUP QUALIFICAÇÃO E ENTREVISTA POR WHATSAPP]</div>
+        <div class="sol-text-float">
+          <h3 class="sol-text-title">Qualificação via WhatsApp</h3>
+          <p class="sol-text-desc">Ao mover o card no ClickUp CRM, o sistema dispara a qualificação imediata. A IA interage via WhatsApp realizando perguntas essenciais (pretensão salarial, experiência e disponibilidade) e sintetiza o comportamento em um relatório estruturado.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Bloco 3 (Fundo Branco) -->
+  <section class="theme-white section-pad">
+    <div class="container">
+      <div class="sol-block-wrapper">
+        <div class="sol-img-large">[MOCKUP AGENDAMENTO INTELECTUAL DE ENTREVISTAS]</div>
+        <div class="sol-text-float">
+          <h3 class="sol-text-title">Agendamento Inteligente</h3>
+          <p class="sol-text-desc">Para candidatos aprovados nas fases iniciais, a IA consulta em tempo real a agenda do recrutador no Google Calendar usando uma tool customizada em código, que previne agendamentos fora do horário comercial ou em finais de semana.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ==============================================
+       6. OS RESULTADOS (PRETO)
+       ============================================== -->
+  <section class="theme-black section-pad">
+    <div class="container">
+      <div class="results-grid">
+        <div class="res-left">
+          <h2 class="res-left-title">Os resultados</h2>
+          <p class="res-left-desc">O impacto direto da implantação do Agente Inteligente de RH da Rumo no funil de contratação de grandes clientes com vagas em lote.</p>
+          <div class="res-gallery">
+            <div class="res-gallery-img">[TELA PIPELINE CLICKUP]</div>
+            <div class="res-gallery-img">[TELA CHATBOT WHATSAPP]</div>
+          </div>
+        </div>
+        <div class="res-right-stats">
+          <div class="stat-item">
+            <span class="stat-number">500+</span>
+            <span class="stat-label">Currículos triados e higienizados por dia</span>
+          </div>
+          <div class="stat-item">
+            <span class="stat-number">85%</span>
+            <span class="stat-label">Redução no tempo operacional de triagem manual</span>
+          </div>
+          <div class="stat-item">
+            <span class="stat-number">100%</span>
+            <span class="stat-label">De rastreabilidade e segurança com controle humano</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ==============================================
+       7. CONTATO (BRANCO)
+       ============================================== -->
+  <section class="theme-white section-pad">
+    <div class="container">
+      <div class="contact-grid">
+        <div class="contact-media">
+          <!-- Gráfico base Preto com o X no meio -->
+        </div>
+        <div class="contact-form">
+          <h2 class="contact-title">Vamos trabalhar juntos.</h2>
+          <form>
+            <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 3rem;">
+              <div class="form-group">
+                <label class="form-label">Nome *</label>
+                <input type="text" class="form-input" />
+              </div>
+              <div class="form-group">
+                <label class="form-label">Sobrenome *</label>
+                <input type="text" class="form-input" />
+              </div>
+            </div>
+            <div class="form-group">
+              <label class="form-label">Email corporativo *</label>
+              <input type="email" class="form-input" />
+            </div>
+            <div class="form-group">
+              <label class="form-label">Mensagem</label>
+              <input type="text" class="form-input" />
+            </div>
+            <button class="btn-submit" type="button">Enviar</button>
+          </form>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ==============================================
+       8. OUTROS CASES (BRANCO)
+       ============================================== -->
+  <section class="theme-white more-cases">
+    <div class="container">
+      <div class="cases-list">
+        <div class="case-row" onclick="window.location.href='sgae.html'">
+          <span class="case-row-title">Estudos de caso SGAE</span>
+          <span class="case-row-icon">→</span>
+        </div>
+        <div class="case-row" onclick="window.location.href='pricefleet.html'">
+          <span class="case-row-title">Estudos de caso PriceFleet</span>
+          <span class="case-row-icon">→</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Script para Contador Dinâmico nos Resultados -->
+  <script>
+    document.addEventListener("DOMContentLoaded", () => {
+      const stats = document.querySelectorAll(".stat-number");
+      
+      const animateCount = (el) => {
+        const targetText = el.innerText.trim();
+        const targetNum = parseInt(targetText, 10);
+        const suffix = targetText.replace(/[0-9]/g, ''); // Extrai %, +, etc.
+        
+        const duration = 1500; // 1.5 segundos
+        const startTime = performance.now();
+        
+        const updateCount = (now) => {
+          const progress = Math.min((now - startTime) / duration, 1);
+          const easeProgress = progress * (2 - progress); // Ease out quad
+          const current = Math.floor(easeProgress * targetNum);
+          
+          el.innerText = current + suffix;
+          
+          if (progress < 1) {
+            requestAnimationFrame(updateCount);
+          } else {
+            el.innerText = targetText;
+          }
+        };
+        
+        requestAnimationFrame(updateCount);
+      };
+      
+      const observer = new IntersectionObserver((entries, self) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            animateCount(entry.target);
+            self.unobserve(entry.target);
+          }
+        });
+      }, { threshold: 0.1 });
+      
+      stats.forEach(stat => {
+        observer.observe(stat);
+      });
+    });
+  </script>
+
+</body>
+</html>

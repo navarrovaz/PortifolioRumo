@@ -3,8 +3,9 @@
 <head>
   <meta charset="utf-8"/>
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
-  <title>Case PriceFleet — Rumo Soluções</title>
-  
+  <title>Case SGAE — Rumo Soluções</title>
+  <meta name="description" content="Como a Rumo Soluções desenvolveu do zero o SGAE, sistema que digitalizou e automatizou a gestão de água e esgoto para concessionárias e autarquias municipais."/>
+
   <link rel="preconnect" href="https://fonts.googleapis.com"/>
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet"/>
@@ -14,18 +15,17 @@
        RESET & TOKENS
        ======================================================== */
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-    
+
     :root {
-      /* Estritamente Preto, Branco e Cinza */
-      --bg-black:      #050505; /* Preto Profundo */
+      --bg-black:      #050505;
       --bg-white:      #ffffff;
-      --bg-light-gray: #f5f5f5; /* Cinza claro suave */
-      
+      --bg-light-gray: #f5f5f5;
+
       --text-black:    #111111;
       --text-white:    #ffffff;
       --text-gray-dark:#555555;
       --text-gray-light:rgba(255,255,255,0.6);
-      
+
       --border-dark:   rgba(255,255,255,0.15);
       --border-light:  rgba(0,0,0,0.1);
     }
@@ -42,13 +42,12 @@
     img { max-width: 100%; display: block; }
     ul { list-style: none; }
 
-    /* Helper Background Classes */
     .theme-black { background-color: var(--bg-black); color: var(--text-white); }
     .theme-white { background-color: var(--bg-white); color: var(--text-black); }
     .theme-gray  { background-color: var(--bg-light-gray); color: var(--text-black); }
 
     /* ========================================================
-       GRID ESPAÇOSO (Herdado do Index)
+       GRID
        ======================================================== */
     .container {
       width: 100%;
@@ -57,12 +56,10 @@
       padding: 0 clamp(1.5rem, 3.5vw, 4rem);
     }
 
-    .section-pad {
-      padding: 8rem 0;
-    }
+    .section-pad { padding: 8rem 0; }
 
     /* ========================================================
-       1. HERO SECTION (THEME BLACK)
+       1. HERO
        ======================================================== */
     .breadcrumbs {
       padding: 2rem 0 4rem;
@@ -71,7 +68,7 @@
       letter-spacing: 0.15em;
       color: var(--text-gray-light);
     }
-    
+
     .hero-grid {
       display: grid;
       grid-template-columns: 1fr 1fr;
@@ -91,9 +88,7 @@
       font-size: 0.85rem; letter-spacing: 0.1em;
     }
 
-    .hero-tags {
-      display: flex; gap: 1rem; margin-bottom: 2rem;
-    }
+    .hero-tags { display: flex; gap: 1rem; margin-bottom: 2rem; }
     .hero-tag {
       font-size: 0.85rem; font-weight: 700; text-transform: uppercase;
       color: var(--text-white); letter-spacing: 0.15em;
@@ -114,7 +109,7 @@
     }
 
     /* ========================================================
-       2. SOBRE O CLIENTE (THEME WHITE)
+       2. SOBRE O PROJETO
        ======================================================== */
     .about-top {
       display: flex;
@@ -124,11 +119,8 @@
       margin-bottom: 4rem;
     }
     .about-title {
-      font-size: 1rem;
-      font-weight: 700;
-      text-transform: uppercase;
-      letter-spacing: 0.15em;
-      margin-bottom: 2rem;
+      font-size: 1rem; font-weight: 700; text-transform: uppercase;
+      letter-spacing: 0.15em; margin-bottom: 2rem;
     }
     .about-lead {
       font-size: clamp(1.8rem, 3vw, 2.5rem);
@@ -149,12 +141,12 @@
     }
 
     /* ========================================================
-       3. SERVIÇOS PRESTADOS (THEME GRAY)
+       3. SERVIÇOS PRESTADOS
        ======================================================== */
     .services-top { margin-bottom: 5rem; }
     .services-title { font-size: 2.5rem; font-weight: 700; margin-bottom: 1rem; letter-spacing: -0.02em; }
     .services-desc { font-size: 1.1rem; color: var(--text-gray-dark); }
-    
+
     .services-grid {
       display: grid;
       grid-template-columns: repeat(3, 1fr);
@@ -169,74 +161,52 @@
       padding: 3rem;
       min-height: 480px;
     }
-    .service-icon {
-      width: 48px; height: 48px; margin-bottom: 4rem;
-    }
+    .service-icon { width: 48px; height: 48px; margin-bottom: 4rem; }
     .service-icon svg { width: 100%; height: 100%; }
     .service-name { font-weight: 400; font-size: 1.8rem; margin-bottom: 1.5rem; letter-spacing: -0.02em; color: var(--text-black); }
     .service-text { font-size: 0.95rem; color: var(--text-gray-dark); margin-bottom: 4rem; line-height: 1.6; }
-    .service-arrow {
-      margin-top: auto;
-      width: 24px; height: 24px;
-    }
+    .service-arrow { margin-top: auto; width: 24px; height: 24px; }
     .service-arrow svg { width: 100%; height: 100%; }
 
     /* ========================================================
-       4. O DESAFIO (THEME BLACK)
+       4. O DESAFIO
        ======================================================== */
-    .challenge-top {
-      text-align: center;
-      margin-bottom: 6rem;
-    }
+    .challenge-top { text-align: center; margin-bottom: 6rem; }
     .challenge-title { font-size: 3.5rem; font-weight: 800; margin-bottom: 1rem; letter-spacing: -0.02em; }
     .challenge-subtitle { font-size: 1.2rem; color: var(--text-gray-light); max-width: 800px; margin: 0 auto; line-height: 1.6; }
 
-    .challenge-grid {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 6rem;
-    }
+    .challenge-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 6rem; }
 
-    .challenge-images {
-      display: flex; flex-direction: column; gap: 2rem;
-    }
+    .challenge-images { display: flex; flex-direction: column; gap: 2rem; }
     .ch-img-ph {
       width: 100%; height: 280px; background: #1a1a1a;
       display: flex; align-items: center; justify-content: center; color: rgba(255,255,255,0.2);
     }
 
-    .challenge-list {
-      display: flex; flex-direction: column; gap: 4rem; justify-content: center;
-    }
-    .ch-item {
-      display: flex; flex-direction: column; gap: 1rem;
-    }
+    .challenge-list { display: flex; flex-direction: column; gap: 4rem; justify-content: center; }
+    .ch-item { display: flex; flex-direction: column; gap: 1rem; }
     .ch-number {
-      font-size: 1.2rem; font-weight: 700; color: var(--text-white); border-bottom: 1px solid var(--border-dark); padding-bottom: 0.5rem; width: 40px;
+      font-size: 1.2rem; font-weight: 700; color: var(--text-white);
+      border-bottom: 1px solid var(--border-dark); padding-bottom: 0.5rem; width: 40px;
     }
     .ch-item-title { font-size: 1.8rem; font-weight: 700; letter-spacing: -0.02em; }
     .ch-item-desc { font-size: 1.1rem; color: var(--text-gray-light); line-height: 1.6; }
 
     /* ========================================================
-       5. A SOLUÇÃO (THEME WHITE / GRAY)
+       5. A SOLUÇÃO
        ======================================================== */
     .sol-top { margin-bottom: 4rem; }
     .sol-title { font-size: 2.5rem; font-weight: 700; }
 
-    .sol-block-wrapper {
-      position: relative;
-      padding: 6rem 0;
-    }
+    .sol-block-wrapper { position: relative; padding: 6rem 0; }
     .sol-img-large {
-      width: 75%;
-      aspect-ratio: 16/9;
+      width: 75%; aspect-ratio: 16/9;
       background: #eaeaea;
       display: flex; align-items: center; justify-content: center; color: #999;
     }
     .sol-text-float {
       position: absolute;
-      top: 50%;
-      right: 5%;
+      top: 50%; right: 5%;
       transform: translateY(-50%);
       width: 40%;
       background: var(--bg-white);
@@ -244,115 +214,97 @@
       box-shadow: 0 30px 60px rgba(0,0,0,0.08);
       z-index: 10;
     }
-    .sol-block-wrapper.reverse .sol-img-large {
-      margin-left: auto;
-    }
-    .sol-block-wrapper.reverse .sol-text-float {
-      right: auto;
-      left: 5%;
-    }
+    .sol-block-wrapper.reverse .sol-img-large { margin-left: auto; }
+    .sol-block-wrapper.reverse .sol-text-float { right: auto; left: 5%; }
 
     .sol-text-title { font-size: 2rem; font-weight: 700; margin-bottom: 1.5rem; letter-spacing: -0.02em; }
     .sol-text-desc { font-size: 1.1rem; color: var(--text-gray-dark); }
 
-    .sol-full-image {
-      width: 100%; aspect-ratio: 21/9; background: #e0e0e0;
-      display: flex; align-items: center; justify-content: center; color: #999;
-      margin-top: 6rem;
-    }
-
     /* ========================================================
-       6. OS RESULTADOS (THEME BLACK)
+       6. OS RESULTADOS
        ======================================================== */
-    .results-grid {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 6rem;
-    }
+    .results-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 6rem; }
     .res-left-title { font-size: 4rem; font-weight: 800; margin-bottom: 2rem; letter-spacing: -0.03em; }
     .res-left-desc { font-size: 1.2rem; color: var(--text-gray-light); margin-bottom: 4rem; max-width: 600px; }
-    
-    .res-gallery {
-      display: grid; grid-template-columns: 1fr 1fr; gap: 2rem;
-    }
+
+    .res-gallery { display: grid; grid-template-columns: 1fr 1fr; gap: 2rem; }
     .res-gallery-img {
       width: 100%; aspect-ratio: 4/5; background: #1a1a1a;
       display: flex; align-items: center; justify-content: center; color: rgba(255,255,255,0.2);
     }
 
-    .res-right-stats {
-      display: flex; flex-direction: column; gap: 5rem;
-      justify-content: center;
-    }
+    .res-right-stats { display: flex; flex-direction: column; gap: 5rem; justify-content: center; }
     .stat-item { display: flex; flex-direction: column; }
-    .stat-number { font-size: clamp(5rem, 8vw, 8rem); font-weight: 300; color: var(--text-white); line-height: 0.9; margin-bottom: 1rem; letter-spacing: -0.04em; }
-    .stat-label { font-size: 1.1rem; font-weight: 600; text-transform: uppercase; letter-spacing: 0.15em; color: var(--text-gray-light); }
+    .stat-number {
+      font-size: clamp(5rem, 8vw, 8rem); font-weight: 300; color: var(--text-white);
+      line-height: 0.9; margin-bottom: 1rem; letter-spacing: -0.04em;
+    }
+    .stat-label {
+      font-size: 1.1rem; font-weight: 600; text-transform: uppercase;
+      letter-spacing: 0.15em; color: var(--text-gray-light);
+    }
 
     /* ========================================================
-       7. VAMOS TRABALHAR JUNTOS (THEME WHITE)
+       7. CONTATO
        ======================================================== */
-    .contact-grid {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 6rem;
-      align-items: center;
-    }
+    .contact-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 6rem; align-items: center; }
     .contact-media {
       width: 100%; aspect-ratio: 1/1; background: var(--bg-black);
-      display: flex; align-items: center; justify-content: center;
-      position: relative;
+      display: flex; align-items: center; justify-content: center; position: relative;
     }
-    /* Simple abstract graphic like reference */
-    .contact-media::after {
-      content: '✕'; font-size: 15rem; color: rgba(255,255,255,0.05); font-weight: 100;
-    }
-
+    .contact-media::after { content: '✕'; font-size: 15rem; color: rgba(255,255,255,0.05); font-weight: 100; }
     .contact-title { font-size: 4rem; font-weight: 800; margin-bottom: 3rem; letter-spacing: -0.03em; }
-    
+
     .form-group { margin-bottom: 2.5rem; }
-    .form-label { display: block; font-size: 0.85rem; font-weight: 700; margin-bottom: 1rem; text-transform: uppercase; color: var(--text-gray-dark); letter-spacing: 0.1em; }
+    .form-label {
+      display: block; font-size: 0.85rem; font-weight: 700;
+      margin-bottom: 1rem; text-transform: uppercase; color: var(--text-gray-dark); letter-spacing: 0.1em;
+    }
     .form-input {
       width: 100%; border: none; border-bottom: 2px solid var(--border-light);
       padding: 0.5rem 0 1rem; font-size: 1.2rem; font-family: 'Inter', sans-serif;
       outline: none; background: transparent; transition: border-color 0.3s;
     }
     .form-input:focus { border-color: var(--text-black); }
-    
+
     .btn-submit {
       background: var(--bg-black); color: var(--text-white); border: none;
-      padding: 1.2rem 3rem; font-weight: 700; cursor: pointer; text-transform: uppercase; letter-spacing: 0.1em;
+      padding: 1.2rem 3rem; font-weight: 700; cursor: pointer;
+      text-transform: uppercase; letter-spacing: 0.1em;
       margin-top: 1rem; transition: opacity 0.3s;
     }
     .btn-submit:hover { opacity: 0.8; }
 
     /* ========================================================
-       8. ESTUDOS DE CASO (THEME WHITE)
+       8. OUTROS CASES
        ======================================================== */
     .more-cases { padding-top: 2rem; padding-bottom: 8rem; }
-    .cases-list {
-      border-top: 2px solid var(--border-light);
-    }
+    .cases-list { border-top: 2px solid var(--border-light); }
     .case-row {
       display: flex; justify-content: space-between; align-items: center;
-      padding: 3rem 0; border-bottom: 2px solid var(--border-light);
-      cursor: pointer;
+      padding: 3rem 0; border-bottom: 2px solid var(--border-light); cursor: pointer;
     }
     .case-row:hover .case-row-title { opacity: 0.6; }
     .case-row-title { font-size: 2rem; font-weight: 700; transition: opacity 0.2s; letter-spacing: -0.02em; }
     .case-row-icon { font-size: 2rem; color: var(--text-black); font-weight: 300; }
 
-    /* Responsive adjustments */
+    /* ========================================================
+       RESPONSIVE
+       ======================================================== */
     @media (max-width: 1024px) {
       .hero-grid, .about-cols, .challenge-grid, .results-grid, .contact-grid {
         grid-template-columns: 1fr;
       }
       .services-grid { grid-template-columns: 1fr; gap: 3rem; }
-      
+
       .sol-img-large { width: 100%; }
-      .sol-text-float { position: relative; width: 100%; transform: none; top: auto; right: auto; left: auto; box-shadow: none; padding: 3rem 0 0 0; }
+      .sol-text-float {
+        position: relative; width: 100%; transform: none;
+        top: auto; right: auto; left: auto; box-shadow: none; padding: 3rem 0 0 0;
+      }
       .sol-block-wrapper.reverse .sol-text-float { left: auto; padding: 3rem 0 0 0; }
       .sol-block-wrapper { padding: 4rem 0; }
-      
+
       .res-right-stats { padding-top: 4rem; }
     }
   </style>
@@ -365,34 +317,34 @@
   <section class="theme-black">
     <div class="container">
       <div class="breadcrumbs">
-        Home / Cases / PriceFleet
+        Home / Cases / SGAE
       </div>
       <div class="hero-grid">
-        <div class="hero-image-ph">[MOCKUP CAPA]</div>
+        <div class="hero-image-ph">[MOCKUP CAPA SGAE]</div>
         <div class="hero-content">
           <div class="hero-tags">
             <span class="hero-tag">Rumo Soluções</span>
             <span class="hero-tag">Fábrica de Software</span>
           </div>
-          <h1 class="hero-title">A plataforma SaaS de precificação inteligente que maximiza a rentabilidade de frotas.</h1>
-          <p class="hero-desc">De planilhas e achismos para simulações financeiras em tempo real, garantia de margem e segurança em contratos de locação.</p>
+          <h1 class="hero-title">Gestão de água e esgoto digitalizada, do campo ao boleto.</h1>
+          <p class="hero-desc">De anotações de papel e leituras estimadas a um sistema 100% digital com registro fotográfico, emissão automática de boletos e integração bancária em tempo real.</p>
         </div>
       </div>
     </div>
   </section>
 
   <!-- ==============================================
-       2. SOBRE A SOLUÇÃO (BRANCO)
+       2. SOBRE O PROJETO (BRANCO)
        ============================================== -->
   <section class="theme-white section-pad">
     <div class="container">
       <div class="about-top">
         <h2 class="about-title">Sobre o Projeto</h2>
-        <p class="about-lead">Desenvolvemos a plataforma do zero, preenchendo uma lacuna crítica no mercado de locação com foco em eficiência, dados reais e governança financeira.</p>
+        <p class="about-lead">Desenvolvemos o SGAE do zero para modernizar a operação de concessionárias e autarquias de saneamento, conectando campo, gestão e cidadão numa plataforma única.</p>
       </div>
       <div class="about-cols">
-        <p>A precificação de frotas sempre foi um processo altamente complexo. Integrando bases de dados do mercado automotivo e variáveis críticas de manutenção, o sistema precisa fornecer segurança total na negociação de cada veículo de forma rápida e automatizada.</p>
-        <p>Desenvolvemos uma solução SaaS escalável, focando em criar uma jornada de usuário fluida através de um wizard passo a passo, integrando de ponta a ponta as áreas comercial, financeira e de operações do ciclo do ativo.</p>
+        <p>A gestão de água e esgoto sempre dependeu de processos manuais vulneráveis: leituras estimadas, anotações em papel, digitação manual e filas de atendimento. O resultado era arrecadação comprometida, inadimplência alta e desconfiança do cidadão.</p>
+        <p>A Rumo Soluções arquitetou uma solução SaaS ponta a ponta que integra o app offline dos leituristas ao painel administrativo web e à infraestrutura bancária, automatizando todo o ciclo — da coleta da leitura ao registro da baixa de pagamento.</p>
       </div>
     </div>
   </section>
@@ -404,9 +356,10 @@
     <div class="container">
       <div class="services-top">
         <h2 class="services-title">Serviços prestados</h2>
-        <p class="services-desc">As frentes de engenharia e produto executadas para estruturar a plataforma.</p>
+        <p class="services-desc">As frentes de engenharia e produto executadas para entregar o SGAE.</p>
       </div>
       <div class="services-grid">
+
         <div class="service-card">
           <div class="service-icon">
             <svg viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -415,7 +368,7 @@
             </svg>
           </div>
           <h3 class="service-name">Análise e Concepção</h3>
-          <p class="service-text">Mapeamos o mercado de locação de frotas e identificamos as principais dores operacionais. A partir da modelagem do problema, estruturamos os requisitos de negócio e projetamos uma solução focada em governança de dados e controle de margens.</p>
+          <p class="service-text">Mapeamos as dores operacionais de concessionárias e autarquias de saneamento. A partir do diagnóstico do mercado, estruturamos os requisitos do sistema e projetamos uma arquitetura que integrasse campo, gestão e cidadão em um único fluxo digital.</p>
           <div class="service-arrow">
             <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
               <path d="M7 17L17 7" stroke="#111" stroke-width="1.5" stroke-linecap="round"/>
@@ -423,6 +376,7 @@
             </svg>
           </div>
         </div>
+
         <div class="service-card">
           <div class="service-icon">
             <svg viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -431,7 +385,7 @@
             </svg>
           </div>
           <h3 class="service-name">Arquitetura e Desenvolvimento</h3>
-          <p class="service-text">Construímos o sistema do zero com uma arquitetura escalável e moderna utilizando React, Node.js e AWS. Desenvolvemos um wizard integrado para simplificar fluxos de cálculos complexos, integração de seguros e projeções dinâmicas de depreciação.</p>
+          <p class="service-text">Construímos o sistema do zero com app mobile offline para leituristas, painel web administrativo e APIs de integração bancária. O app garante operação sem internet, sincronizando automaticamente os dados ao detectar conexão.</p>
           <div class="service-arrow">
             <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
               <path d="M7 17L17 7" stroke="#111" stroke-width="1.5" stroke-linecap="round"/>
@@ -439,6 +393,7 @@
             </svg>
           </div>
         </div>
+
         <div class="service-card">
           <div class="service-icon">
             <svg viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -447,7 +402,7 @@
             </svg>
           </div>
           <h3 class="service-name">Automação e Integrações</h3>
-          <p class="service-text">Automatizamos a precificação eliminando tarefas manuais através de integrações nativas com bases de mercado (FIPE, DataCar) e sistemas de gestão de frotas (Locavia, BlueFleet), otimizando a tomada de decisão em tempo real.</p>
+          <p class="service-text">Automatizamos o faturamento com geração e emissão de boletos no mesmo dia da leitura via integração bancária direta. Integramos ainda a Agência Virtual no WhatsApp para autoatendimento e envio automático de contas ao cidadão.</p>
           <div class="service-arrow">
             <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
               <path d="M7 17L17 7" stroke="#111" stroke-width="1.5" stroke-linecap="round"/>
@@ -455,6 +410,7 @@
             </svg>
           </div>
         </div>
+
       </div>
     </div>
   </section>
@@ -466,29 +422,29 @@
     <div class="container">
       <div class="challenge-top">
         <h2 class="challenge-title">O Desafio</h2>
-        <p class="challenge-subtitle">Mapeamos o gargalo operacional das locadoras: a ausência de uma plataforma centralizada e inteligente para gerenciar o ciclo de ativos de frota.</p>
+        <p class="challenge-subtitle">Identificamos um mercado inteiro dependente de papel, intuição e processos desconectados — com impacto direto na arrecadação e na confiança do cidadão.</p>
       </div>
       <div class="challenge-grid">
         <div class="challenge-images">
-          <div class="ch-img-ph">[MOCKUP ANÁLISE DE MERCADO]</div>
-          <div class="ch-img-ph">[MOCKUP PLANILHA DE LOCAÇÃO]</div>
-          <div class="ch-img-ph">[MOCKUP DESCONEXÃO FINANCEIRA]</div>
+          <div class="ch-img-ph">[MOCKUP LEITURA MANUAL NO CAMPO]</div>
+          <div class="ch-img-ph">[MOCKUP PLANILHA DE FATURAMENTO]</div>
+          <div class="ch-img-ph">[MOCKUP FILA DE ATENDIMENTO PRESENCIAL]</div>
         </div>
         <div class="challenge-list">
           <div class="ch-item">
             <span class="ch-number">01</span>
-            <h3 class="ch-item-title">Dependência de planilhas e processos manuais</h3>
-            <p class="ch-item-desc">A precificação de frotas era feita em planilhas dispersas e suscetíveis a erros humanos graves, dificultando a rastreabilidade e a consistência das propostas comerciais.</p>
+            <h3 class="ch-item-title">Leituras imprecisas e não comprovadas</h3>
+            <p class="ch-item-desc">Medições puladas por portão fechado ou estimadas incorretamente geravam subcobrança crônica, reduzindo a arrecadação e alimentando conflitos com moradores que não reconheciam as contas.</p>
           </div>
           <div class="ch-item">
             <span class="ch-number">02</span>
-            <h3 class="ch-item-title">Decisões baseadas em empirismo e achismo</h3>
-            <p class="ch-item-desc">Gestores definiam preços com tabelas engessadas ou baseados em intuição, sem considerar variáveis cruciais como depreciação real, valor residual futuro e deflatores de desgaste.</p>
+            <h3 class="ch-item-title">Processos manuais e desconectados</h3>
+            <p class="ch-item-desc">Anotações em papel no campo, digitação manual nos escritórios e geração de boletos dias após a leitura: um ciclo lento, sujeito a erros e incapaz de acompanhar o volume de uma autarquia municipal.</p>
           </div>
           <div class="ch-item">
             <span class="ch-number">03</span>
-            <h3 class="ch-item-title">Desconexão entre as áreas da empresa</h3>
-            <p class="ch-item-desc">A falta de integração entre a área comercial (vendas), financeira (ROI) e operacional (compra/manutenção/venda do veículo) gerava prejuízos silenciosos e propostas comerciais lentas.</p>
+            <h3 class="ch-item-title">Cidadão sem acesso e sem transparência</h3>
+            <p class="ch-item-desc">A ausência de canais digitais forçava moradores a enfrentar filas presenciais ou centrais telefônicas congestionadas para solicitar segunda via de boleto, consultar débitos ou registrar ordens de serviço.</p>
           </div>
         </div>
       </div>
@@ -504,14 +460,14 @@
         <h2 class="sol-title">A Solução</h2>
       </div>
     </div>
-    
+
     <!-- Bloco 1 -->
     <div class="container">
       <div class="sol-block-wrapper">
-        <div class="sol-img-large">[MOCKUP WIZARD DE PRECIFICAÇÃO]</div>
+        <div class="sol-img-large">[MOCKUP APP DE LEITURA OFFLINE]</div>
         <div class="sol-text-float">
-          <h3 class="sol-text-title">Wizard de Precificação</h3>
-          <p class="sol-text-desc">Guiamos o usuário de forma linear e intuitiva através de um fluxo estruturado: Dados Gerais, Condições do Contrato, Dados do Veículo, Projeção Residual, Precificação e Revisão. Esse fluxo assegura a conformidade de dados e evita omissões de custos operacionais.</p>
+          <h3 class="sol-text-title">App de Leitura Offline</h3>
+          <p class="sol-text-desc">O leiturista registra a leitura no app com foto obrigatória do hidrômetro e geolocalização automática, mesmo sem internet. Os dados são sincronizados em nuvem assim que a conexão é detectada, garantindo rastreabilidade total de 100% das medições.</p>
         </div>
       </div>
     </div>
@@ -521,10 +477,10 @@
   <section class="theme-gray">
     <div class="container">
       <div class="sol-block-wrapper reverse">
-        <div class="sol-img-large">[MOCKUP PROJEÇÃO VALOR RESIDUAL]</div>
+        <div class="sol-img-large">[MOCKUP PAINEL DE FATURAMENTO]</div>
         <div class="sol-text-float">
-          <h3 class="sol-text-title">Projeção de Valor Residual</h3>
-          <p class="sol-text-desc">Desenvolvemos um motor de cálculo sofisticado que estima a depreciação real do ativo com base em dados de mercado (FIPE e DataCar) e deflatores dinâmicos como quilometragem contratada, tipo de utilização e riscos de facelift do modelo.</p>
+          <h3 class="sol-text-title">Faturamento no Mesmo Dia</h3>
+          <p class="sol-text-desc">Após a validação pelo gestor no painel web, o sistema calcula automaticamente o consumo, aplica as tarifas parametrizadas da concessionária e emite os boletos com registro bancário — no mesmo dia em que a leitura foi realizada.</p>
         </div>
       </div>
     </div>
@@ -534,10 +490,10 @@
   <section class="theme-white section-pad">
     <div class="container">
       <div class="sol-block-wrapper">
-        <div class="sol-img-large">[MOCKUP SIMULAÇÃO FINANCEIRA E APURAÇÃO DE ROI]</div>
+        <div class="sol-img-large">[MOCKUP AGÊNCIA VIRTUAL WHATSAPP]</div>
         <div class="sol-text-float">
-          <h3 class="sol-text-title">Simulação e Alçadas</h3>
-          <p class="sol-text-desc">Integramos análises de ROI, margem de contribuição, EBITDA e fluxo de caixa projetado no encerramento da proposta. Caso as margens simuladas fiquem abaixo do limite da empresa, o sistema dispara alertas e workflows de aprovação para diretores, garantindo governança total nas negociações.</p>
+          <h3 class="sol-text-title">Agência Virtual no WhatsApp</h3>
+          <p class="sol-text-desc">O cidadão solicita segunda via de boleto, consulta débitos e recebe notificações de falta de água ou vazamentos diretamente pelo WhatsApp. Ordens de Serviço são enviadas ao celular dos técnicos e o morador acompanha o status em tempo real — sem filas, sem ligações.</p>
         </div>
       </div>
     </div>
@@ -551,24 +507,24 @@
       <div class="results-grid">
         <div class="res-left">
           <h2 class="res-left-title">Os resultados</h2>
-          <p class="res-left-desc">O impacto direto da centralização da inteligência de precificação e automação de cálculos no PriceFleet, refletido no desempenho comercial e financeiro das locadoras.</p>
+          <p class="res-left-desc">O impacto direto da digitalização ponta a ponta da operação de saneamento, com mais de 10 anos de histórico comprovado atendendo autarquias como AMSJA e VESAN.</p>
           <div class="res-gallery">
-            <div class="res-gallery-img">[TELA WIZARD COMPACTO]</div>
-            <div class="res-gallery-img">[TELA PROJEÇÃO RESIDUAL DE FROTAS]</div>
+            <div class="res-gallery-img">[TELA APP LEITURISTA]</div>
+            <div class="res-gallery-img">[TELA PAINEL ADMINISTRATIVO]</div>
           </div>
         </div>
         <div class="res-right-stats">
           <div class="stat-item">
-            <span class="stat-number">90%</span>
-            <span class="stat-label">Redução no tempo de elaboração de propostas</span>
-          </div>
-          <div class="stat-item">
             <span class="stat-number">100%</span>
-            <span class="stat-label">De rastreabilidade e governança das margens</span>
+            <span class="stat-label">Das leituras com foto e GPS comprovados</span>
           </div>
           <div class="stat-item">
-            <span class="stat-number">23%</span>
-            <span class="stat-label">Aumento na taxa de conversão de contratos</span>
+            <span class="stat-number">1</span>
+            <span class="stat-label">Dia para emissão do boleto após a leitura</span>
+          </div>
+          <div class="stat-item">
+            <span class="stat-number">10+</span>
+            <span class="stat-label">Anos atendendo autarquias municipais</span>
           </div>
         </div>
       </div>
@@ -618,8 +574,8 @@
   <section class="theme-white more-cases">
     <div class="container">
       <div class="cases-list">
-        <div class="case-row" onclick="window.location.href='sgae.html'">
-          <span class="case-row-title">Estudos de caso SGAE</span>
+        <div class="case-row" onclick="window.location.href='pricefleet.html'">
+          <span class="case-row-title">Estudos de caso PriceFleet</span>
           <span class="case-row-icon">→</span>
         </div>
         <div class="case-row" onclick="window.location.href='index.html'">
@@ -634,32 +590,33 @@
   <script>
     document.addEventListener("DOMContentLoaded", () => {
       const stats = document.querySelectorAll(".stat-number");
-      
+
       const animateCount = (el) => {
         const targetText = el.innerText.trim();
-        const targetNum = parseInt(targetText, 10);
-        const suffix = targetText.replace(/[0-9]/g, ''); // Extrai %, +, etc.
-        
-        const duration = 1500; // 1.5 segundos
+        // Extrai o número principal, ignorando "+" ou outros sufixos/prefixos
+        const targetNum = parseInt(targetText.replace(/[^0-9]/g, ''), 10);
+        const suffix = targetText.replace(/[0-9]/g, '');
+
+        const duration = 1500;
         const startTime = performance.now();
-        
+
         const updateCount = (now) => {
           const progress = Math.min((now - startTime) / duration, 1);
-          const easeProgress = progress * (2 - progress); // Ease out quad
+          const easeProgress = progress * (2 - progress);
           const current = Math.floor(easeProgress * targetNum);
-          
+
           el.innerText = current + suffix;
-          
+
           if (progress < 1) {
             requestAnimationFrame(updateCount);
           } else {
             el.innerText = targetText;
           }
         };
-        
+
         requestAnimationFrame(updateCount);
       };
-      
+
       const observer = new IntersectionObserver((entries, self) => {
         entries.forEach(entry => {
           if (entry.isIntersecting) {
@@ -668,10 +625,8 @@
           }
         });
       }, { threshold: 0.1 });
-      
-      stats.forEach(stat => {
-        observer.observe(stat);
-      });
+
+      stats.forEach(stat => observer.observe(stat));
     });
   </script>
 

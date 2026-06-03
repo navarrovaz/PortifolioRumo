@@ -1,33 +1,42 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
-<head>
-  <meta charset="utf-8"/>
-  <meta name="viewport" content="width=device-width, initial-scale=1"/>
-  <title>Case Startvet — Rumo Soluções</title>
-  <meta name="description" content="Como a Rumo Soluções redesenhou um app legado e construiu um ecossistema completo de telemedicina veterinária 24h para o Brasil e os Estados Unidos."/>
 
-  <link rel="preconnect" href="https://fonts.googleapis.com"/>
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet"/>
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Case Startvet — Rumo Soluções</title>
+  <meta name="description"
+    content="Como a Rumo Soluções redesenhou um app legado e construiu um ecossistema completo de telemedicina veterinária 24h para o Brasil e os Estados Unidos." />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap"
+    rel="stylesheet" />
 
   <style>
     /* ========================================================
        RESET & TOKENS
        ======================================================== */
-    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    *,
+    *::before,
+    *::after {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
 
     :root {
-      --bg-black:       #050505;
-      --bg-white:       #ffffff;
-      --bg-light-gray:  #f5f5f5;
+      --bg-black: #050505;
+      --bg-white: #ffffff;
+      --bg-light-gray: #f5f5f5;
 
-      --text-black:     #111111;
-      --text-white:     #ffffff;
+      --text-black: #111111;
+      --text-white: #ffffff;
       --text-gray-dark: #555555;
-      --text-gray-light:rgba(255,255,255,0.6);
+      --text-gray-light: rgba(255, 255, 255, 0.6);
 
-      --border-dark:    rgba(255,255,255,0.15);
-      --border-light:   rgba(0,0,0,0.1);
+      --border-dark: rgba(255, 255, 255, 0.15);
+      --border-light: rgba(0, 0, 0, 0.1);
     }
 
     body {
@@ -38,13 +47,34 @@
       font-size: 16px;
     }
 
-    a { text-decoration: none; color: inherit; }
-    img { max-width: 100%; display: block; }
-    ul { list-style: none; }
+    a {
+      text-decoration: none;
+      color: inherit;
+    }
 
-    .theme-black { background-color: var(--bg-black); color: var(--text-white); }
-    .theme-white { background-color: var(--bg-white); color: var(--text-black); }
-    .theme-gray  { background-color: var(--bg-light-gray); color: var(--text-black); }
+    img {
+      max-width: 100%;
+      display: block;
+    }
+
+    ul {
+      list-style: none;
+    }
+
+    .theme-black {
+      background-color: var(--bg-black);
+      color: var(--text-white);
+    }
+
+    .theme-white {
+      background-color: var(--bg-white);
+      color: var(--text-black);
+    }
+
+    .theme-gray {
+      background-color: var(--bg-light-gray);
+      color: var(--text-black);
+    }
 
     /* ========================================================
        GRID
@@ -56,7 +86,9 @@
       padding: 0 clamp(1.5rem, 3.5vw, 4rem);
     }
 
-    .section-pad { padding: 8rem 0; }
+    .section-pad {
+      padding: 8rem 0;
+    }
 
     /* ========================================================
        1. HERO
@@ -82,16 +114,27 @@
       aspect-ratio: 4/3;
       background: #1a1a1a;
       border: 1px solid var(--border-dark);
-      display: flex; align-items: flex-end; justify-content: flex-end;
+      display: flex;
+      align-items: flex-end;
+      justify-content: flex-end;
       padding: 2rem;
-      color: rgba(255,255,255,0.3);
-      font-size: 0.85rem; letter-spacing: 0.1em;
+      color: rgba(255, 255, 255, 0.3);
+      font-size: 0.85rem;
+      letter-spacing: 0.1em;
     }
 
-    .hero-tags { display: flex; gap: 1rem; margin-bottom: 2rem; }
+    .hero-tags {
+      display: flex;
+      gap: 1rem;
+      margin-bottom: 2rem;
+    }
+
     .hero-tag {
-      font-size: 0.85rem; font-weight: 700; text-transform: uppercase;
-      color: var(--text-white); letter-spacing: 0.15em;
+      font-size: 0.85rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      color: var(--text-white);
+      letter-spacing: 0.15em;
     }
 
     .hero-title {
@@ -118,10 +161,15 @@
       text-align: center;
       margin-bottom: 4rem;
     }
+
     .about-title {
-      font-size: 1rem; font-weight: 700; text-transform: uppercase;
-      letter-spacing: 0.15em; margin-bottom: 2rem;
+      font-size: 1rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.15em;
+      margin-bottom: 2rem;
     }
+
     .about-lead {
       font-size: clamp(1.8rem, 3vw, 2.5rem);
       font-weight: 700;
@@ -130,6 +178,7 @@
       line-height: 1.3;
       letter-spacing: -0.02em;
     }
+
     .about-cols {
       display: grid;
       grid-template-columns: 1fr 1fr;
@@ -143,15 +192,28 @@
     /* ========================================================
        3. SERVIÇOS PRESTADOS
        ======================================================== */
-    .services-top { margin-bottom: 5rem; }
-    .services-title { font-size: 2.5rem; font-weight: 700; margin-bottom: 1rem; letter-spacing: -0.02em; }
-    .services-desc { font-size: 1.1rem; color: var(--text-gray-dark); }
+    .services-top {
+      margin-bottom: 5rem;
+    }
+
+    .services-title {
+      font-size: 2.5rem;
+      font-weight: 700;
+      margin-bottom: 1rem;
+      letter-spacing: -0.02em;
+    }
+
+    .services-desc {
+      font-size: 1.1rem;
+      color: var(--text-gray-dark);
+    }
 
     .services-grid {
       display: grid;
       grid-template-columns: repeat(3, 1fr);
       gap: 2rem;
     }
+
     .service-card {
       display: flex;
       flex-direction: column;
@@ -161,154 +223,419 @@
       padding: 3rem;
       min-height: 480px;
     }
-    .service-icon { width: 48px; height: 48px; margin-bottom: 4rem; }
-    .service-icon svg { width: 100%; height: 100%; }
-    .service-name { font-weight: 400; font-size: 1.8rem; margin-bottom: 1.5rem; letter-spacing: -0.02em; color: var(--text-black); }
-    .service-text { font-size: 0.95rem; color: var(--text-gray-dark); margin-bottom: 4rem; line-height: 1.6; }
-    .service-arrow { margin-top: auto; width: 24px; height: 24px; }
-    .service-arrow svg { width: 100%; height: 100%; }
+
+    .service-icon {
+      width: 48px;
+      height: 48px;
+      margin-bottom: 4rem;
+    }
+
+    .service-icon svg {
+      width: 100%;
+      height: 100%;
+    }
+
+    .service-name {
+      font-weight: 400;
+      font-size: 1.8rem;
+      margin-bottom: 1.5rem;
+      letter-spacing: -0.02em;
+      color: var(--text-black);
+    }
+
+    .service-text {
+      font-size: 0.95rem;
+      color: var(--text-gray-dark);
+      margin-bottom: 4rem;
+      line-height: 1.6;
+    }
+
+    .service-arrow {
+      margin-top: auto;
+      width: 24px;
+      height: 24px;
+    }
+
+    .service-arrow svg {
+      width: 100%;
+      height: 100%;
+    }
 
     /* ========================================================
        4. O DESAFIO
        ======================================================== */
-    .challenge-top { text-align: center; margin-bottom: 6rem; }
-    .challenge-title { font-size: 3.5rem; font-weight: 800; margin-bottom: 1rem; letter-spacing: -0.02em; }
-    .challenge-subtitle { font-size: 1.2rem; color: var(--text-gray-light); max-width: 800px; margin: 0 auto; line-height: 1.6; }
+    .challenge-top {
+      text-align: center;
+      margin-bottom: 6rem;
+    }
 
-    .challenge-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 6rem; }
+    .challenge-title {
+      font-size: 3.5rem;
+      font-weight: 800;
+      margin-bottom: 1rem;
+      letter-spacing: -0.02em;
+    }
 
-    .challenge-images { display: flex; flex-direction: column; gap: 2rem; }
+    .challenge-subtitle {
+      font-size: 1.2rem;
+      color: var(--text-gray-light);
+      max-width: 800px;
+      margin: 0 auto;
+      line-height: 1.6;
+    }
+
+    .challenge-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 6rem;
+    }
+
+    .challenge-images {
+      display: flex;
+      flex-direction: column;
+      gap: 2rem;
+    }
+
     .ch-img-ph {
-      width: 100%; height: 280px; background: #1a1a1a;
-      display: flex; align-items: center; justify-content: center; color: rgba(255,255,255,0.2);
+      width: 100%;
+      height: 280px;
+      background: #1a1a1a;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: rgba(255, 255, 255, 0.2);
     }
 
-    .challenge-list { display: flex; flex-direction: column; gap: 4rem; justify-content: center; }
-    .ch-item { display: flex; flex-direction: column; gap: 1rem; }
-    .ch-number {
-      font-size: 1.2rem; font-weight: 700; color: var(--text-white);
-      border-bottom: 1px solid var(--border-dark); padding-bottom: 0.5rem; width: 40px;
+    .challenge-list {
+      display: flex;
+      flex-direction: column;
+      gap: 4rem;
+      justify-content: center;
     }
-    .ch-item-title { font-size: 1.8rem; font-weight: 700; letter-spacing: -0.02em; }
-    .ch-item-desc { font-size: 1.1rem; color: var(--text-gray-light); line-height: 1.6; }
+
+    .ch-item {
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+    }
+
+    .ch-number {
+      font-size: 1.2rem;
+      font-weight: 700;
+      color: var(--text-white);
+      border-bottom: 1px solid var(--border-dark);
+      padding-bottom: 0.5rem;
+      width: 40px;
+    }
+
+    .ch-item-title {
+      font-size: 1.8rem;
+      font-weight: 700;
+      letter-spacing: -0.02em;
+    }
+
+    .ch-item-desc {
+      font-size: 1.1rem;
+      color: var(--text-gray-light);
+      line-height: 1.6;
+    }
 
     /* ========================================================
        5. A SOLUÇÃO
        ======================================================== */
-    .sol-top { margin-bottom: 4rem; }
-    .sol-title { font-size: 2.5rem; font-weight: 700; }
-
-    .sol-block-wrapper { position: relative; padding: 6rem 0; }
-    .sol-img-large {
-      width: 75%; aspect-ratio: 16/9;
-      background: #eaeaea;
-      display: flex; align-items: center; justify-content: center; color: #999;
+    .sol-top {
+      margin-bottom: 4rem;
     }
+
+    .sol-title {
+      font-size: 2.5rem;
+      font-weight: 700;
+    }
+
+    .sol-block-wrapper {
+      position: relative;
+      padding: 6rem 0;
+    }
+
+    .sol-img-large {
+      width: 75%;
+      aspect-ratio: 16/9;
+      background: #eaeaea;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: #999;
+    }
+
     .sol-text-float {
       position: absolute;
-      top: 50%; right: 5%;
+      top: 50%;
+      right: 5%;
       transform: translateY(-50%);
       width: 40%;
       background: var(--bg-white);
       padding: 4rem;
-      box-shadow: 0 30px 60px rgba(0,0,0,0.08);
+      box-shadow: 0 30px 60px rgba(0, 0, 0, 0.08);
       z-index: 10;
     }
-    .sol-block-wrapper.reverse .sol-img-large { margin-left: auto; }
-    .sol-block-wrapper.reverse .sol-text-float { right: auto; left: 5%; }
 
-    .sol-text-title { font-size: 2rem; font-weight: 700; margin-bottom: 1.5rem; letter-spacing: -0.02em; }
-    .sol-text-desc { font-size: 1.1rem; color: var(--text-gray-dark); }
+    .sol-block-wrapper.reverse .sol-img-large {
+      margin-left: auto;
+    }
+
+    .sol-block-wrapper.reverse .sol-text-float {
+      right: auto;
+      left: 5%;
+    }
+
+    .sol-text-title {
+      font-size: 2rem;
+      font-weight: 700;
+      margin-bottom: 1.5rem;
+      letter-spacing: -0.02em;
+    }
+
+    .sol-text-desc {
+      font-size: 1.1rem;
+      color: var(--text-gray-dark);
+    }
 
     /* ========================================================
        6. OS RESULTADOS
        ======================================================== */
-    .results-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 6rem; }
-    .res-left-title { font-size: 4rem; font-weight: 800; margin-bottom: 2rem; letter-spacing: -0.03em; }
-    .res-left-desc { font-size: 1.2rem; color: var(--text-gray-light); margin-bottom: 4rem; max-width: 600px; }
+    .results-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 6rem;
+    }
 
-    .res-gallery { display: grid; grid-template-columns: 1fr 1fr; gap: 2rem; }
+    .res-left-title {
+      font-size: 4rem;
+      font-weight: 800;
+      margin-bottom: 2rem;
+      letter-spacing: -0.03em;
+    }
+
+    .res-left-desc {
+      font-size: 1.2rem;
+      color: var(--text-gray-light);
+      margin-bottom: 4rem;
+      max-width: 600px;
+    }
+
+    .res-gallery {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 2rem;
+    }
+
     .res-gallery-img {
-      width: 100%; aspect-ratio: 4/5; background: #1a1a1a;
-      display: flex; align-items: center; justify-content: center; color: rgba(255,255,255,0.2);
+      width: 100%;
+      aspect-ratio: 4/5;
+      background: #1a1a1a;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: rgba(255, 255, 255, 0.2);
     }
 
-    .res-right-stats { display: flex; flex-direction: column; gap: 5rem; justify-content: center; }
-    .stat-item { display: flex; flex-direction: column; }
-    .stat-number {
-      font-size: clamp(5rem, 8vw, 8rem); font-weight: 300; color: var(--text-white);
-      line-height: 0.9; margin-bottom: 1rem; letter-spacing: -0.04em;
+    .res-right-stats {
+      display: flex;
+      flex-direction: column;
+      gap: 5rem;
+      justify-content: center;
     }
+
+    .stat-item {
+      display: flex;
+      flex-direction: column;
+    }
+
+    .stat-number {
+      font-size: clamp(5rem, 8vw, 8rem);
+      font-weight: 300;
+      color: var(--text-white);
+      line-height: 0.9;
+      margin-bottom: 1rem;
+      letter-spacing: -0.04em;
+    }
+
     .stat-label {
-      font-size: 1.1rem; font-weight: 600; text-transform: uppercase;
-      letter-spacing: 0.15em; color: var(--text-gray-light);
+      font-size: 1.1rem;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.15em;
+      color: var(--text-gray-light);
     }
 
     /* ========================================================
        7. CONTATO
        ======================================================== */
-    .contact-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 6rem; align-items: center; }
-    .contact-media {
-      width: 100%; aspect-ratio: 1/1; background: var(--bg-black);
-      display: flex; align-items: center; justify-content: center; position: relative;
+    .contact-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 6rem;
+      align-items: center;
     }
-    .contact-media::after { content: '✕'; font-size: 15rem; color: rgba(255,255,255,0.05); font-weight: 100; }
-    .contact-title { font-size: 4rem; font-weight: 800; margin-bottom: 3rem; letter-spacing: -0.03em; }
 
-    .form-group { margin-bottom: 2.5rem; }
+    .contact-media {
+      width: 100%;
+      aspect-ratio: 1/1;
+      background: var(--bg-black);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      position: relative;
+    }
+
+    .contact-media::after {
+      content: '✕';
+      font-size: 15rem;
+      color: rgba(255, 255, 255, 0.05);
+      font-weight: 100;
+    }
+
+    .contact-title {
+      font-size: 4rem;
+      font-weight: 800;
+      margin-bottom: 3rem;
+      letter-spacing: -0.03em;
+    }
+
+    .form-group {
+      margin-bottom: 2.5rem;
+    }
+
     .form-label {
-      display: block; font-size: 0.85rem; font-weight: 700;
-      margin-bottom: 1rem; text-transform: uppercase; color: var(--text-gray-dark); letter-spacing: 0.1em;
+      display: block;
+      font-size: 0.85rem;
+      font-weight: 700;
+      margin-bottom: 1rem;
+      text-transform: uppercase;
+      color: var(--text-gray-dark);
+      letter-spacing: 0.1em;
     }
+
     .form-input {
-      width: 100%; border: none; border-bottom: 2px solid var(--border-light);
-      padding: 0.5rem 0 1rem; font-size: 1.2rem; font-family: 'Inter', sans-serif;
-      outline: none; background: transparent; transition: border-color 0.3s;
+      width: 100%;
+      border: none;
+      border-bottom: 2px solid var(--border-light);
+      padding: 0.5rem 0 1rem;
+      font-size: 1.2rem;
+      font-family: 'Inter', sans-serif;
+      outline: none;
+      background: transparent;
+      transition: border-color 0.3s;
     }
-    .form-input:focus { border-color: var(--text-black); }
+
+    .form-input:focus {
+      border-color: var(--text-black);
+    }
 
     .btn-submit {
-      background: var(--bg-black); color: var(--text-white); border: none;
-      padding: 1.2rem 3rem; font-weight: 700; cursor: pointer;
-      text-transform: uppercase; letter-spacing: 0.1em;
-      margin-top: 1rem; transition: opacity 0.3s;
+      background: var(--bg-black);
+      color: var(--text-white);
+      border: none;
+      padding: 1.2rem 3rem;
+      font-weight: 700;
+      cursor: pointer;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      margin-top: 1rem;
+      transition: opacity 0.3s;
     }
-    .btn-submit:hover { opacity: 0.8; }
+
+    .btn-submit:hover {
+      opacity: 0.8;
+    }
 
     /* ========================================================
        8. OUTROS CASES
        ======================================================== */
-    .more-cases { padding-top: 2rem; padding-bottom: 8rem; }
-    .cases-list { border-top: 2px solid var(--border-light); }
-    .case-row {
-      display: flex; justify-content: space-between; align-items: center;
-      padding: 3rem 0; border-bottom: 2px solid var(--border-light); cursor: pointer;
+    .more-cases {
+      padding-top: 2rem;
+      padding-bottom: 8rem;
     }
-    .case-row:hover .case-row-title { opacity: 0.6; }
-    .case-row-title { font-size: 2rem; font-weight: 700; transition: opacity 0.2s; letter-spacing: -0.02em; }
-    .case-row-icon { font-size: 2rem; color: var(--text-black); font-weight: 300; }
+
+    .cases-list {
+      border-top: 2px solid var(--border-light);
+    }
+
+    .case-row {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 3rem 0;
+      border-bottom: 2px solid var(--border-light);
+      cursor: pointer;
+    }
+
+    .case-row:hover .case-row-title {
+      opacity: 0.6;
+    }
+
+    .case-row-title {
+      font-size: 2rem;
+      font-weight: 700;
+      transition: opacity 0.2s;
+      letter-spacing: -0.02em;
+    }
+
+    .case-row-icon {
+      font-size: 2rem;
+      color: var(--text-black);
+      font-weight: 300;
+    }
 
     /* ========================================================
        RESPONSIVE
        ======================================================== */
     @media (max-width: 1024px) {
-      .hero-grid, .about-cols, .challenge-grid, .results-grid, .contact-grid {
+
+      .hero-grid,
+      .about-cols,
+      .challenge-grid,
+      .results-grid,
+      .contact-grid {
         grid-template-columns: 1fr;
       }
-      .services-grid { grid-template-columns: 1fr; gap: 3rem; }
 
-      .sol-img-large { width: 100%; }
-      .sol-text-float {
-        position: relative; width: 100%; transform: none;
-        top: auto; right: auto; left: auto; box-shadow: none; padding: 3rem 0 0 0;
+      .services-grid {
+        grid-template-columns: 1fr;
+        gap: 3rem;
       }
-      .sol-block-wrapper.reverse .sol-text-float { left: auto; padding: 3rem 0 0 0; }
-      .sol-block-wrapper { padding: 4rem 0; }
 
-      .res-right-stats { padding-top: 4rem; }
+      .sol-img-large {
+        width: 100%;
+      }
+
+      .sol-text-float {
+        position: relative;
+        width: 100%;
+        transform: none;
+        top: auto;
+        right: auto;
+        left: auto;
+        box-shadow: none;
+        padding: 3rem 0 0 0;
+      }
+
+      .sol-block-wrapper.reverse .sol-text-float {
+        left: auto;
+        padding: 3rem 0 0 0;
+      }
+
+      .sol-block-wrapper {
+        padding: 4rem 0;
+      }
+
+      .res-right-stats {
+        padding-top: 4rem;
+      }
     }
   </style>
 </head>
+
 <body>
 
   <!-- ==============================================
@@ -327,7 +654,8 @@
             <span class="hero-tag">Fábrica de Software</span>
           </div>
           <h1 class="hero-title">Do app legado ao ecossistema de telemedicina veterinária 24h.</h1>
-          <p class="hero-desc">Redesenhamos a arquitetura, modernizamos a experiência e construímos um ecossistema completo — com videochamadas, receitas digitais, gateway multimoeda e evolução contínua.</p>
+          <p class="hero-desc">Redesenhamos a arquitetura, modernizamos a experiência e construímos um ecossistema
+            completo — com videochamadas, receitas digitais, gateway multimoeda e evolução contínua.</p>
         </div>
       </div>
     </div>
@@ -340,11 +668,17 @@
     <div class="container">
       <div class="about-top">
         <h2 class="about-title">Sobre o Projeto</h2>
-        <p class="about-lead">Redesenhamos um app legado instável e construímos um ecossistema de telemedicina veterinária bilíngue, homologado no Brasil e nos EUA.</p>
+        <p class="about-lead">Redesenhamos um app legado instável e construímos um ecossistema de telemedicina
+          veterinária bilíngue, homologado no Brasil e nos EUA.</p>
       </div>
       <div class="about-cols">
-        <p>O Startvet chegou à Rumo com um app funcional mas instável — gargalos de performance sob carga, interface desatualizada e sem capacidade de crescer para novos mercados. A missão era redesenhar o sistema sem interromper os clientes ativos e sem perder o histórico de dados de usuários e pets.</p>
-        <p>Em três etapas progressivas, refatoramos a base técnica, expandimos para o mercado internacional com localização completa e gateway multimoeda, e implementamos recursos clínicos avançados como receitas com assinatura digital certificada ICP-Brasil e emissão de documentos de viagem para pets — com suporte técnico contínuo e entregas semanais.</p>
+        <p>O Startvet chegou à Rumo com um app funcional mas instável — gargalos de performance sob carga, interface
+          desatualizada e sem capacidade de crescer para novos mercados. A missão era redesenhar o sistema sem
+          interromper os clientes ativos e sem perder o histórico de dados de usuários e pets.</p>
+        <p>Em três etapas progressivas, refatoramos a base técnica, expandimos para o mercado internacional com
+          localização completa e gateway multimoeda, e implementamos recursos clínicos avançados como receitas com
+          assinatura digital certificada ICP-Brasil e emissão de documentos de viagem para pets — com suporte técnico
+          contínuo e entregas semanais.</p>
       </div>
     </div>
   </section>
@@ -356,23 +690,29 @@
     <div class="container">
       <div class="services-top">
         <h2 class="services-title">Serviços prestados</h2>
-        <p class="services-desc">As frentes de engenharia e produto executadas ao longo das três etapas de evolução do Startvet.</p>
+        <p class="services-desc">As frentes de engenharia e produto executadas ao longo das três etapas de evolução do
+          Startvet.</p>
       </div>
       <div class="services-grid">
 
         <div class="service-card">
           <div class="service-icon">
             <svg viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg">
-              <path fill-rule="evenodd" clip-rule="evenodd" d="M32 0V24C18.745 24 8 13.255 8 0H32ZM32 64V40C45.255 40 56 50.745 56 64H32Z" fill="#111"/>
-              <path fill-rule="evenodd" clip-rule="evenodd" d="M0 32H24C24 45.255 13.255 56 0 56V32ZM64 32H40C40 18.745 50.745 8 64 8V32Z" fill="#111"/>
+              <path fill-rule="evenodd" clip-rule="evenodd"
+                d="M32 0V24C18.745 24 8 13.255 8 0H32ZM32 64V40C45.255 40 56 50.745 56 64H32Z" fill="#111" />
+              <path fill-rule="evenodd" clip-rule="evenodd"
+                d="M0 32H24C24 45.255 13.255 56 0 56V32ZM64 32H40C40 18.745 50.745 8 64 8V32Z" fill="#111" />
             </svg>
           </div>
           <h3 class="service-name">Redesenho do App Legado</h3>
-          <p class="service-text">Realizamos diagnóstico completo da arquitetura legada e conduzimos a reengenharia do sistema: nova interface responsiva e minimalista compatível com Android, iOS e web, estabilização de banco de dados e ciclo contínuo de monitoramento de infraestrutura em nuvem para manter conexões de vídeo 24/7.</p>
+          <p class="service-text">Realizamos diagnóstico completo da arquitetura legada e conduzimos a reengenharia do
+            sistema: nova interface responsiva e minimalista compatível com Android, iOS e web, estabilização de banco
+            de dados e ciclo contínuo de monitoramento de infraestrutura em nuvem para manter conexões de vídeo 24/7.
+          </p>
           <div class="service-arrow">
             <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-              <path d="M7 17L17 7" stroke="#111" stroke-width="1.5" stroke-linecap="round"/>
-              <path d="M7 7H17V17" stroke="#111" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+              <path d="M7 17L17 7" stroke="#111" stroke-width="1.5" stroke-linecap="round" />
+              <path d="M7 7H17V17" stroke="#111" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
             </svg>
           </div>
         </div>
@@ -380,16 +720,21 @@
         <div class="service-card">
           <div class="service-icon">
             <svg viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg">
-              <path fill-rule="evenodd" clip-rule="evenodd" d="M32 0V24C18.745 24 8 13.255 8 0H32ZM32 64V40C45.255 40 56 50.745 56 64H32Z" fill="#111"/>
-              <path fill-rule="evenodd" clip-rule="evenodd" d="M0 32H24C24 45.255 13.255 56 0 56V32ZM64 32H40C40 18.745 50.745 8 64 8V32Z" fill="#111"/>
+              <path fill-rule="evenodd" clip-rule="evenodd"
+                d="M32 0V24C18.745 24 8 13.255 8 0H32ZM32 64V40C45.255 40 56 50.745 56 64H32Z" fill="#111" />
+              <path fill-rule="evenodd" clip-rule="evenodd"
+                d="M0 32H24C24 45.255 13.255 56 0 56V32ZM64 32H40C40 18.745 50.745 8 64 8V32Z" fill="#111" />
             </svg>
           </div>
           <h3 class="service-name">Internacionalização e Pagamentos</h3>
-          <p class="service-text">Traduzimos e localizamos integralmente o app para Português e Inglês, com filtro inteligente que conecta tutores a veterinários no idioma selecionado. Integramos gateway multimoeda para processar assinaturas recorrentes e pagamentos avulsos em Real e Dólar, habilitando a publicação nas lojas do Brasil e dos EUA.</p>
+          <p class="service-text">Traduzimos e localizamos integralmente o app para Português e Inglês, com filtro
+            inteligente que conecta tutores a veterinários no idioma selecionado. Integramos gateway multimoeda para
+            processar assinaturas recorrentes e pagamentos avulsos em Real e Dólar, habilitando a publicação nas lojas
+            do Brasil e dos EUA.</p>
           <div class="service-arrow">
             <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-              <path d="M7 17L17 7" stroke="#111" stroke-width="1.5" stroke-linecap="round"/>
-              <path d="M7 7H17V17" stroke="#111" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+              <path d="M7 17L17 7" stroke="#111" stroke-width="1.5" stroke-linecap="round" />
+              <path d="M7 7H17V17" stroke="#111" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
             </svg>
           </div>
         </div>
@@ -397,16 +742,21 @@
         <div class="service-card">
           <div class="service-icon">
             <svg viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg">
-              <path fill-rule="evenodd" clip-rule="evenodd" d="M32 0V24C18.745 24 8 13.255 8 0H32ZM32 64V40C45.255 40 56 50.745 56 64H32Z" fill="#111"/>
-              <path fill-rule="evenodd" clip-rule="evenodd" d="M0 32H24C24 45.255 13.255 56 0 56V32ZM64 32H40C40 18.745 50.745 8 64 8V32Z" fill="#111"/>
+              <path fill-rule="evenodd" clip-rule="evenodd"
+                d="M32 0V24C18.745 24 8 13.255 8 0H32ZM32 64V40C45.255 40 56 50.745 56 64H32Z" fill="#111" />
+              <path fill-rule="evenodd" clip-rule="evenodd"
+                d="M0 32H24C24 45.255 13.255 56 0 56V32ZM64 32H40C40 18.745 50.745 8 64 8V32Z" fill="#111" />
             </svg>
           </div>
           <h3 class="service-name">Ecossistema Clínico Digital</h3>
-          <p class="service-text">Implementamos prontuário eletrônico por pet, módulo de assinatura digital certificada ICP-Brasil para receitas com validade em farmácias, emissão de laudos de trânsito internacional e tele interconsultas entre veterinários. Suporte técnico contínuo garante evoluções funcionais semanais e estabilidade da plataforma.</p>
+          <p class="service-text">Implementamos prontuário eletrônico por pet, módulo de assinatura digital certificada
+            ICP-Brasil para receitas com validade em farmácias, emissão de laudos de trânsito internacional e tele
+            interconsultas entre veterinários. Suporte técnico contínuo garante evoluções funcionais semanais e
+            estabilidade da plataforma.</p>
           <div class="service-arrow">
             <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-              <path d="M7 17L17 7" stroke="#111" stroke-width="1.5" stroke-linecap="round"/>
-              <path d="M7 7H17V17" stroke="#111" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+              <path d="M7 17L17 7" stroke="#111" stroke-width="1.5" stroke-linecap="round" />
+              <path d="M7 7H17V17" stroke="#111" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
             </svg>
           </div>
         </div>
@@ -422,7 +772,8 @@
     <div class="container">
       <div class="challenge-top">
         <h2 class="challenge-title">O Desafio</h2>
-        <p class="challenge-subtitle">Recebemos um app com base técnica frágil, sem capacidade de escalar, sem presença internacional e sem infraestrutura para emitir documentos clínicos com validade legal.</p>
+        <p class="challenge-subtitle">Recebemos um app com base técnica frágil, sem capacidade de escalar, sem presença
+          internacional e sem infraestrutura para emitir documentos clínicos com validade legal.</p>
       </div>
       <div class="challenge-grid">
         <div class="challenge-images">
@@ -434,17 +785,24 @@
           <div class="ch-item">
             <span class="ch-number">01</span>
             <h3 class="ch-item-title">Base legada instável e sem escala</h3>
-            <p class="ch-item-desc">O app original apresentava gargalos graves de performance sob picos de conexões simultâneas, alta taxa de travamentos de banco de dados e interface desatualizada. Era necessário reconstruir essa estrutura sem interromper o serviço aos clientes ativos e sem perder dados históricos.</p>
+            <p class="ch-item-desc">O app original apresentava gargalos graves de performance sob picos de conexões
+              simultâneas, alta taxa de travamentos de banco de dados e interface desatualizada. Era necessário
+              reconstruir essa estrutura sem interromper o serviço aos clientes ativos e sem perder dados históricos.
+            </p>
           </div>
           <div class="ch-item">
             <span class="ch-number">02</span>
             <h3 class="ch-item-title">Barreiras de idioma, pagamento e mercado</h3>
-            <p class="ch-item-desc">Para expandir ao mercado norte-americano, o sistema precisava superar restrições de pagamentos internacionais, suportar assinaturas recorrentes em Real e Dólar e oferecer um ambiente multilíngue onde tutores escolhessem o idioma da consulta antes de iniciar a videochamada.</p>
+            <p class="ch-item-desc">Para expandir ao mercado norte-americano, o sistema precisava superar restrições de
+              pagamentos internacionais, suportar assinaturas recorrentes em Real e Dólar e oferecer um ambiente
+              multilíngue onde tutores escolhessem o idioma da consulta antes de iniciar a videochamada.</p>
           </div>
           <div class="ch-item">
             <span class="ch-number">03</span>
             <h3 class="ch-item-title">Prescrições sem validade jurídica</h3>
-            <p class="ch-item-desc">Garantir que receitas emitidas em consultas virtuais fossem reconhecidas em farmácias físicas exigia um mecanismo de assinatura digital certificada. Sem esse módulo, os veterinários não podiam prescrever medicamentos, limitando gravemente o valor clínico da plataforma.</p>
+            <p class="ch-item-desc">Garantir que receitas emitidas em consultas virtuais fossem reconhecidas em
+              farmácias físicas exigia um mecanismo de assinatura digital certificada. Sem esse módulo, os veterinários
+              não podiam prescrever medicamentos, limitando gravemente o valor clínico da plataforma.</p>
           </div>
         </div>
       </div>
@@ -467,7 +825,10 @@
         <div class="sol-img-large">[MOCKUP VIDEOCHAMADA E PRONTUÁRIO DO PET]</div>
         <div class="sol-text-float">
           <h3 class="sol-text-title">Videochamada 24h sem agendamento</h3>
-          <p class="sol-text-desc">Refatoramos o motor de videochamadas para suportar conexões simultâneas de baixa latência, adaptado para redes móveis instáveis. O tutor clica em iniciar atendimento, escolhe o idioma preferido e é conectado imediatamente a um veterinário plantonista — sem filas de espera tradicionais e sem marcação prévia, a qualquer hora do dia ou da noite.</p>
+          <p class="sol-text-desc">Refatoramos o motor de videochamadas para suportar conexões simultâneas de baixa
+            latência, adaptado para redes móveis instáveis. O tutor clica em iniciar atendimento, escolhe o idioma
+            preferido e é conectado imediatamente a um veterinário plantonista — sem filas de espera tradicionais e sem
+            marcação prévia, a qualquer hora do dia ou da noite.</p>
         </div>
       </div>
     </div>
@@ -480,7 +841,10 @@
         <div class="sol-img-large">[MOCKUP GATEWAY MULTIMOEDA E SELEÇÃO DE PLANO]</div>
         <div class="sol-text-float">
           <h3 class="sol-text-title">Expansão Internacional</h3>
-          <p class="sol-text-desc">Localizamos completamente o app para Português e Inglês, integramos um gateway de pagamentos multimoeda que processa Real e Dólar e publicamos o Startvet com conformidade total nas lojas do Brasil e dos Estados Unidos. O sistema de filtro conecta tutores a veterinários de acordo com o idioma selecionado antes da chamada.</p>
+          <p class="sol-text-desc">Localizamos completamente o app para Português e Inglês, integramos um gateway de
+            pagamentos multimoeda que processa Real e Dólar e publicamos o Startvet com conformidade total nas lojas do
+            Brasil e dos Estados Unidos. O sistema de filtro conecta tutores a veterinários de acordo com o idioma
+            selecionado antes da chamada.</p>
         </div>
       </div>
     </div>
@@ -493,7 +857,10 @@
         <div class="sol-img-large">[MOCKUP RECEITA DIGITAL E DOCUMENTOS DE VIAGEM]</div>
         <div class="sol-text-float">
           <h3 class="sol-text-title">Prescrições Digitais com Validade Jurídica</h3>
-          <p class="sol-text-desc">Desenvolvemos o módulo de assinatura digital certificada ICP-Brasil que garante validade jurídica plena às receitas emitidas nas consultas virtuais — aceitas em redes de farmácias físicas e online. O mesmo ecossistema gera laudos de trânsito internacional para pets, desburocratizando viagens nacionais e internacionais com animais de estimação.</p>
+          <p class="sol-text-desc">Desenvolvemos o módulo de assinatura digital certificada ICP-Brasil que garante
+            validade jurídica plena às receitas emitidas nas consultas virtuais — aceitas em redes de farmácias físicas
+            e online. O mesmo ecossistema gera laudos de trânsito internacional para pets, desburocratizando viagens
+            nacionais e internacionais com animais de estimação.</p>
         </div>
       </div>
     </div>
@@ -507,7 +874,8 @@
       <div class="results-grid">
         <div class="res-left">
           <h2 class="res-left-title">Os resultados</h2>
-          <p class="res-left-desc">Da estabilização de um app legado ao lançamento internacional homologado em dois países, com evolução funcional contínua e ecossistema clínico completo.</p>
+          <p class="res-left-desc">Da estabilização de um app legado ao lançamento internacional homologado em dois
+            países, com evolução funcional contínua e ecossistema clínico completo.</p>
           <div class="res-gallery">
             <div class="res-gallery-img">[TELA APP MOBILE STARTVET]</div>
             <div class="res-gallery-img">[TELA PRONTUÁRIO E RECEITA DIGITAL]</div>
@@ -632,4 +1000,5 @@
   </script>
 
 </body>
+
 </html>
